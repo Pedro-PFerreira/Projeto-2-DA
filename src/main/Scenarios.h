@@ -15,9 +15,9 @@ class Scenarios {
 private:
     vector<Journey> journeys;
 
-    Graph g;
+    Graph<int> g;
 
-    void makeGraph(const vector<Journey>& j, int num_locals);
+    void makeGraph(const vector<Journey>& j);
 
 public:
     Scenarios();
@@ -26,7 +26,7 @@ public:
 
     void separateGroups();
 
-    Graph getG();
+    Graph<int> getG();
 
 };
 

@@ -1,7 +1,6 @@
 #include "gtest/gtest.h"
 #include "../main/FileReader.h"
 #include "../main/Scenarios.h"
-#include "../main/Graph.h"
 
 using namespace std;
 
@@ -23,10 +22,10 @@ TEST(TEST_2, checkGraphs){
 
     int counter = 0;
 
-    for (const auto& node: scenarios.getG().nodes){
-        counter += (int) node.adj.size();
+    for (const auto& vertex: scenarios.getG().getVertexSet()){
+        counter += vertex->getAdj().size();
     }
 
-    ASSERT_EQ(fileReader.getNumLocals()+ 1, scenarios.getG().nodes.size());
+    ASSERT_EQ(fileReader.getNumLocals(), scenarios.getG().getNumVertex());
     ASSERT_EQ(fileReader.getNumJourneys(), counter);
 }

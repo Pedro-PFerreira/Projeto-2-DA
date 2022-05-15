@@ -5,9 +5,9 @@ project(DA2_PROJETO)
 set(GOOGLETEST_PATH lib/googletest-master)
 add_subdirectory(${GOOGLETEST_PATH})
 
-add_executable(DA2_PROJETO src/main/main.cpp src/main/FileReader.cpp src/main/FileReader.h src/main/Journey.h src/main/Graph.cpp src/main/Graph.h src/main/Scenarios.cpp src/main/Scenarios.h)
+add_executable(DA2_PROJETO src/main/main.cpp src/main/FileReader.cpp src/main/FileReader.h src/main/Journey.h src/main/Graph.h src/main/Scenarios.cpp src/main/Scenarios.h src/main/MutablePriorityQueue.h)
 
-add_executable(DA2_PROJETO-Tests src/main/FileReader.cpp src/main/FileReader.h src/main/Journey.h src/main/Graph.cpp src/main/Graph.h src/main/Scenarios.cpp src/main/Scenarios.h src/test/Test.cpp src/test/AllTests.cpp)
+add_executable(DA2_PROJETO-Tests src/main/FileReader.cpp src/main/FileReader.h src/main/Journey.h src/main/Graph.h src/main/Scenarios.cpp src/main/Scenarios.h src/test/Test.cpp src/test/AllTests.cpp src/main/MutablePriorityQueue.h)
 
 
 target_link_libraries(DA2_PROJETO gtest_main gmock_main)
