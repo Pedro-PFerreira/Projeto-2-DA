@@ -13,12 +13,19 @@ using namespace std;
 class FileReader{
 private:
   string dirPath;
+  int num_locals, num_journeys;
+
 
 public:
-    FileReader(string dir);
+    FileReader();
+
+    explicit FileReader(string dir);
 
     vector<Journey> getJourneys();
 
+    int getNumLocals() const;
+
+    int getNumJourneys() const;
 };
 
 #endif //DA2_PROJETO_FILEREADER_H

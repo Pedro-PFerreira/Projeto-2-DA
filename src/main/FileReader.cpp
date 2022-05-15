@@ -2,16 +2,14 @@
 
 #include <utility>
 
+
+FileReader::FileReader() {this->dirPath = ""; this->num_journeys = 0; this->num_locals= 0;}
+
 FileReader::FileReader(string dir) {
     this->dirPath = move(dir);
-}
-
-vector<Journey> FileReader::getJourneys() {
     ifstream file;
-    vector<Journey> journeys;
-    string Locals, Travel, Origin, Dest, Cap, Dur;
     file.open(dirPath);
-    int count = 0;
+    string Locals, Travel;
     if(!file){
         cout << "Unable to open file!\n";
         cout << "The program will now close.\n";
@@ -20,8 +18,30 @@ vector<Journey> FileReader::getJourneys() {
     else if(file.is_open()){
         getline(file, Locals, ' ');
         getline(file, Travel, '\n');
-        int travel = stoi(Travel);
-        while(count < travel){
+        this->num_locals = stoi(Locals);
+        this->num_journeys = stoi(Travel);
+        file.close();
+    }
+}
+
+int FileReader::getNumLocals() const {return this->num_locals;}
+
+int FileReader::getNumJourneys() const {return this->num_journeys;}
+
+vector<Journey> FileReader::getJourneys() {
+    ifstream file;
+    vector<Journey> journeys;
+    string line, Origin, Dest, Cap, Dur;
+    file.open(dirPath);
+    int count = 0;
+    if(!file){
+        cout << "Unable to open file!\n";
+        cout << "The program will now close.\n";
+        system(reinterpret_cast<const char *>(EXIT_FAILURE));
+    }
+    else if(file.is_open()){
+        getline(file, line, '\n');
+        while(count < getNumJourneys()){
             getline(file, Origin, ' ');
             getline(file, Dest, ' ');
             getline(file, Cap, ' ');
