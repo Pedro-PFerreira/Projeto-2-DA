@@ -6,7 +6,7 @@ using namespace std;
 
 TEST(TEST_1, checkReadFile){
     FileReader fileReader = FileReader("../input/in01.txt");
-    vector<Elements> viagens = fileReader.getJourneys();
+    vector<Journey> viagens = fileReader.getJourneys();
 
     cout << viagens[0].origin << endl;
     cout << viagens.size() << endl;

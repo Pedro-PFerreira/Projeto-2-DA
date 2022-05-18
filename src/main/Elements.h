@@ -8,7 +8,7 @@ struct Vehicle {
     int capacity;
 };
 
-struct Elements {
+struct Journey {
     Vehicle vehicle;
     int origin, destiny, duration;
 };

@@ -1,7 +1,7 @@
 #include "Scenarios.h"
 
 
-void Scenarios::makeGraph(const vector<Elements>& j) {
+void Scenarios::makeGraph(const vector<Journey>& j) {
     for (auto journey : j){
         this->g.addVertex(journey.origin);
         this->g.findVertex(journey.origin)->setDuration(journey.duration);

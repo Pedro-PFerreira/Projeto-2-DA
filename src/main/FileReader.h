@@ -21,7 +21,7 @@ public:
 
     explicit FileReader(string dir);
 
-    vector<Elements> getJourneys();
+    vector<Journey> getJourneys();
 
     int getNumLocals() const;
 

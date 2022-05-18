@@ -13,11 +13,11 @@ using namespace std;
 class Scenarios {
 
 private:
-    vector<Elements> journeys;
+    vector<Journey> journeys;
 
     Graph<int> g;
 
-    void makeGraph(const vector<Elements>& j);
+    void makeGraph(const vector<Journey>& j);
 
 public:
     Scenarios();
