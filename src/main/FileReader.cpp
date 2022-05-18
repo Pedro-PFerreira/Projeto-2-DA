@@ -28,9 +28,9 @@ int FileReader::getNumLocals() const {return this->num_locals;}
 
 int FileReader::getNumJourneys() const {return this->num_journeys;}
 
-vector<Journey> FileReader::getJourneys() {
+vector<Elements> FileReader::getJourneys() {
     ifstream file;
-    vector<Journey> journeys;
+    vector<Elements> journeys;
     string line, Origin, Dest, Cap, Dur;
     file.open(dirPath);
     int count = 0;
@@ -49,10 +49,10 @@ vector<Journey> FileReader::getJourneys() {
 
             int origin = stoi(Origin), dest = stoi(Dest), cap = stoi(Cap), dur = stoi(Dur);
 
-            Journey journey{};
+            Elements journey{};
             journey.origin = origin;
             journey.destiny = dest;
-            journey.capacity = cap;
+            journey.vehicle.capacity = cap;
             journey.duration = dur;
             journeys.push_back(journey);
             count++;

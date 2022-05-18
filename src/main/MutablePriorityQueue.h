@@ -1,5 +1,7 @@
-#include <vector>
+#ifndef DA2_PROJETO_MUTABLEPRIORITYQUEUE_H
+#define DA2_PROJETO_MUTABLEPRIORITYQUEUE_H
 
+#include <vector>
 
 template <class T>
 class MutablePriorityQueue {
@@ -84,8 +86,5 @@ void MutablePriorityQueue<T>::set(unsigned i, T * x) {
     H[i] = x;
     x->queueIndex = i;
 }
-
-#ifndef DA2_PROJETO_MUTABLEPRIORITYQUEUE_H
-#define DA2_PROJETO_MUTABLEPRIORITYQUEUE_H
 
 #endif //DA2_PROJETO_MUTABLEPRIORITYQUEUE_H

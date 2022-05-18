@@ -1,12 +1,12 @@
 #include "Scenarios.h"
 
 
-void Scenarios::makeGraph(const vector<Journey>& j) {
+void Scenarios::makeGraph(const vector<Elements>& j) {
     for (auto journey : j){
         this->g.addVertex(journey.origin);
         this->g.findVertex(journey.origin)->setDuration(journey.duration);
         this->g.addVertex(journey.destiny);
-        this->g.addEdge(journey.origin, journey.destiny, journey.capacity);
+        this->g.addEdge(journey.origin, journey.destiny, journey.vehicle.capacity);
     }
 
 }

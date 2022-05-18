@@ -3,7 +3,7 @@
 
 
 #include "FileReader.h"
-#include "Journey.h"
+#include "Elements.h"
 #include "Graph.h"
 
 #include <vector>
@@ -13,11 +13,11 @@ using namespace std;
 class Scenarios {
 
 private:
-    vector<Journey> journeys;
+    vector<Elements> journeys;
 
     Graph<int> g;
 
-    void makeGraph(const vector<Journey>& j);
+    void makeGraph(const vector<Elements>& j);
 
 public:
     Scenarios();
