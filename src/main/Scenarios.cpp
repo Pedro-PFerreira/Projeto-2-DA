@@ -6,7 +6,7 @@ void Scenarios::makeGraph(const vector<Journey>& j) {
         this->g.addVertex(journey.origin);
         this->g.findVertex(journey.origin)->setDuration(journey.duration);
         this->g.addVertex(journey.destiny);
-        this->g.addEdge(journey.origin, journey.destiny, journey.capacity);
+        this->g.addEdge(journey.origin, journey.destiny, journey.vehicle.capacity);
     }
 
 }

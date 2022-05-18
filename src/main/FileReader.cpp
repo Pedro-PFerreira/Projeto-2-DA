@@ -52,7 +52,7 @@ vector<Journey> FileReader::getJourneys() {
             Journey journey{};
             journey.origin = origin;
             journey.destiny = dest;
-            journey.capacity = cap;
+            journey.vehicle.capacity = cap;
             journey.duration = dur;
             journeys.push_back(journey);
             count++;
