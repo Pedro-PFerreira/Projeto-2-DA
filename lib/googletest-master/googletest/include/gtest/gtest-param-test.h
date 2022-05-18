@@ -219,7 +219,7 @@ namespace testing {
 //     * It must have operator+() (operator+(int-compatible type) for
 //       two-operand version).
 //     * It must have operator<() defined.
-//     Journey in the resulting sequences will also have that type.
+//     Elements in the resulting sequences will also have that type.
 //   * Condition start < end must be satisfied in order for resulting sequences
 //     to contain any elements.
 //
