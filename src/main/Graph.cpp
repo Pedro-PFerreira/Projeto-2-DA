@@ -13,7 +13,7 @@ void Graph::maximumCapicityPath(int s) {
     MinHeap<int, int> Q = MinHeap<int, int>(nodes.size(), -1);
 
     while(Q.getSize() == 0){
-        int value = Q.removeMin();
+        int value = Q.removeMax();
         Node v = nodes[value];
         v.visited = true;
         for (auto edge : v.adj){
@@ -21,7 +21,7 @@ void Graph::maximumCapicityPath(int s) {
            if (!w.visited && (v.mincap, edge.capacity) < w.mincap){
                w.mincap = min(v.mincap, edge.capacity);
                w.pred = value;
-
+               Q.increaseKey(w, w.mincap);
            }
         }
     }

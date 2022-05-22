@@ -37,7 +37,9 @@ public:
     bool hasKey(const K& key);  // Heap has key?
     void insert(const K& key, const V& value);      // Insert (key, value) on the heap
     void decreaseKey(const K& key, const V& value); // Decrease value of key
+    void increaseKey(const K& key, const V& value);
     K removeMin(); // remove and return key with smaller value
+    K removeMax();
 };
 
 // ----------------------------------------------
@@ -110,6 +112,15 @@ void MinHeap<K,V>::decreaseKey(const K& key, const V& value) {
     upHeap(i);
 }
 
+template <class K, class V>
+void MinHeap<K,V>::increaseKey(const K& key, const V& value) {
+    if (!hasKey(key)) return; // key does not exist, do nothing
+    int i = pos[key];
+    if (value < a[i].value) return; // value would increase, do nothing
+    a[i].value = value;
+    downHeap(i);
+}
+
 // remove and return key with smaller value
 template <class K, class V>
 K MinHeap<K,V>::removeMin() {
@@ -121,8 +132,17 @@ K MinHeap<K,V>::removeMin() {
     return min;
 }
 
+
+template <class K, class V>
+K MinHeap<K,V>::removeMax() {
+    if (size == 0) return KEY_NOT_FOUND;
+    K max = a[size].key;
+    pos.erase(max);
+    a[size] = a[size--];
+    downHeap(size);
+    return max;
+}
+
 #endif
-
-
 
 #endif //DA2_PROJETO_MUTABLEPRIORITYQUEUE_H
