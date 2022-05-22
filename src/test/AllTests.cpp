@@ -5,27 +5,28 @@
 using namespace std;
 
 TEST(TEST_1, checkReadFile){
-    FileReader fileReader = FileReader("../input/in01.txt");
+    FileReader fileReader = FileReader("../input/in01_b.txt");
     vector<Journey> viagens = fileReader.getJourneys();
 
     cout << viagens[0].origin << endl;
     cout << viagens.size() << endl;
 
-    ASSERT_EQ(146, viagens.size());
+    ASSERT_EQ(136, viagens.size());
 }
 
 TEST(TEST_2, checkGraphs){
 
-    FileReader fileReader = FileReader("../input/in01.txt");
+    FileReader fileReader = FileReader("../input/in01_b.txt");
 
-    Scenarios scenarios = Scenarios();
+    Scenarios scenarios = Scenarios(Graph(fileReader.getNumLocals(), true));
 
     int counter = 0;
 
-    for (const auto& vertex: scenarios.getG().getVertexSet()){
-        counter += vertex->getAdj().size();
+    for (const auto& node: scenarios.getG().getNodes()){
+        counter += node.adj.size();
     }
 
-    ASSERT_EQ(fileReader.getNumLocals(), scenarios.getG().getNumVertex());
+
+    ASSERT_EQ(fileReader.getNumLocals(), scenarios.getG().getNodes().size() - 1);
     ASSERT_EQ(fileReader.getNumJourneys(), counter);
 }

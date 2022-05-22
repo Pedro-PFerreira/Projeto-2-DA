@@ -3,22 +3,22 @@
 
 void Scenarios::makeGraph(const vector<Journey>& j) {
     for (auto journey : j){
-        this->g.addVertex(journey.origin);
-        this->g.findVertex(journey.origin)->setDuration(journey.duration);
-        this->g.addVertex(journey.destiny);
         this->g.addEdge(journey.origin, journey.destiny, journey.vehicle.capacity);
+        this->g.setDuration(journey.origin, journey.duration);
     }
 
 }
 
-Scenarios::Scenarios() {
-    FileReader fileReader = FileReader("../input/in01.txt");
+Scenarios::Scenarios(Graph g) : g(g) {
+    FileReader fileReader = FileReader("../input/in01_b.txt");
     this->journeys = fileReader.getJourneys();
     makeGraph(this->journeys);
 }
 
-Graph<int> Scenarios::getG() {return this->g;}
+Graph Scenarios::getG() {return this->g;}
 
-void Scenarios::unseparateGroups() {}
+void Scenarios::unseparateGroups() {
+    g.maximumCapicityPath(1);
+}
 
 void Scenarios::separateGroups() {}

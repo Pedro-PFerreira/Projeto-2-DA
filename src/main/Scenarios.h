@@ -15,18 +15,18 @@ class Scenarios {
 private:
     vector<Journey> journeys;
 
-    Graph<int> g;
+    Graph g;
 
     void makeGraph(const vector<Journey>& j);
 
 public:
-    Scenarios();
+    Scenarios(Graph g);
 
     void unseparateGroups();
 
     void separateGroups();
 
-    Graph<int> getG();
+    Graph getG();
 
 };
 

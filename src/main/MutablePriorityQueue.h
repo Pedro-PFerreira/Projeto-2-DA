@@ -1,90 +1,128 @@
 #ifndef DA2_PROJETO_MUTABLEPRIORITYQUEUE_H
 #define DA2_PROJETO_MUTABLEPRIORITYQUEUE_H
 
-#include <vector>
+#ifndef _MINHEAP_H_
+#define _MINHEAP_H_
 
-template <class T>
-class MutablePriorityQueue {
-    std::vector<T *> H;
-    void heapifyUp(unsigned i);
-    void heapifyDown(unsigned i);
-    inline void set(unsigned i, T * x);
+#include <vector>
+#include <unordered_map>
+
+#define LEFT(i) (2*(i))
+#define RIGHT(i) (2*(i)+1)
+#define PARENT(i) ((i)/2)
+
+using namespace std;
+
+// Binary min-heap to represent integer keys of type K with values (priorities) of type V
+template <class K, class V>
+class MinHeap {
+    struct Node { // An element of the heap: a pair (key, value)
+        K key;
+        V value;
+    };
+
+    int size;                  // Number of elements in heap
+    int maxSize;               // Maximum number of elements in heap
+    vector<Node> a;            // The heap array
+    unordered_map<K, int> pos; // maps a key into its position on the array a
+    const K KEY_NOT_FOUND;
+
+    void upHeap(int i);
+    void downHeap(int i);
+    void swap(int i1, int i2);
+
 public:
-    MutablePriorityQueue();
-    void insert(T * x);
-    T * extractMin();
-    void decreaseKey(T * x);
-    bool empty();
+    MinHeap(int n, const K& notFound); // Create a min-heap for a max of n pairs (K,V) with notFound returned when empty
+    int getSize();              // Return number of elements in the heap
+    bool hasKey(const K& key);  // Heap has key?
+    void insert(const K& key, const V& value);      // Insert (key, value) on the heap
+    void decreaseKey(const K& key, const V& value); // Decrease value of key
+    K removeMin(); // remove and return key with smaller value
 };
 
-// Index calculations
-#define parent(i) ((i) / 2)
-#define leftChild(i) ((i) * 2)
+// ----------------------------------------------
 
-template <class T>
-MutablePriorityQueue<T>::MutablePriorityQueue() {
-    H.push_back(nullptr);
-    // indices will be used starting in 1
-    // to facilitate parent/child calculations
-}
-
-template <class T>
-bool MutablePriorityQueue<T>::empty() {
-    return H.size() == 1;
-}
-
-template <class T>
-T* MutablePriorityQueue<T>::extractMin() {
-    auto x = H[1];
-    H[1] = H.back();
-    H.pop_back();
-    if(H.size() > 1) heapifyDown(1);
-    x->queueIndex = 0;
-    return x;
-}
-
-template <class T>
-void MutablePriorityQueue<T>::insert(T *x) {
-    H.push_back(x);
-    heapifyUp(H.size()-1);
-}
-
-template <class T>
-void MutablePriorityQueue<T>::decreaseKey(T *x) {
-    heapifyUp(x->queueIndex);
-}
-
-template <class T>
-void MutablePriorityQueue<T>::heapifyUp(unsigned i) {
-    auto x = H[i];
-    while (i > 1 && *x < *H[parent(i)]) {
-        set(i, H[parent(i)]);
-        i = parent(i);
+// Make a value go "up the tree" until it reaches its position
+template <class K, class V>
+void MinHeap<K,V>::upHeap(int i) {
+    while (i>1 && a[i].value < a[PARENT(i)].value) { // while pos smaller than parent, keep swapping to upper position
+        swap(i, PARENT(i));
+        i = PARENT(i);
     }
-    set(i, x);
 }
 
-template <class T>
-void MutablePriorityQueue<T>::heapifyDown(unsigned i) {
-    auto x = H[i];
-    while (true) {
-        unsigned k = leftChild(i);
-        if (k >= H.size())
-            break;
-        if (k+1 < H.size() && *H[k+1] < *H[k])
-            ++k; // right child of i
-        if ( ! (*H[k] < *x) )
-            break;
-        set(i, H[k]);
-        i = k;
+// Make a value go "down the tree" until it reaches its position
+template <class K, class V>
+void MinHeap<K,V>::downHeap(int i) {
+    while (LEFT(i) <= size) { // while within heap limits
+        int j = LEFT(i);
+        if (RIGHT(i)<=size && a[RIGHT(i)].value < a[j].value) j = RIGHT(i); // choose smaller child
+        if (a[i].value < a[j].value) break;   // node already smaller than children, stop
+        swap(i, j);                    // otherwise, swap with smaller child
+        i = j;
     }
-    set(i, x);
 }
 
-template <class T>
-void MutablePriorityQueue<T>::set(unsigned i, T * x) {
-    H[i] = x;
-    x->queueIndex = i;
+// Swap two positions of the heap (update their positions)
+template <class K, class V>
+void MinHeap<K,V>::swap(int i1, int i2) {
+    Node tmp = a[i1]; a[i1] = a[i2]; a[i2] = tmp;
+    pos[a[i1].key] = i1;
+    pos[a[i2].key] = i2;
 }
+
+// ----------------------------------------------
+
+// Create a min-heap for a max of n pairs (K,V) with notFound returned when empty
+template <class K, class V>
+MinHeap<K,V>::MinHeap(int n, const K& notFound) : KEY_NOT_FOUND(notFound), size(0), maxSize(n), a(n+1) {
+}
+
+// Return number of elements in the heap
+template <class K, class V>
+int MinHeap<K,V>::getSize() {
+    return size;
+}
+
+// Heap has key?
+template <class K, class V>
+bool MinHeap<K, V>::hasKey(const K& key) {
+    return pos.find(key) != pos.end();
+}
+
+// Insert (key, value) on the heap
+template <class K, class V>
+void MinHeap<K,V>::insert(const K& key, const V& value) {
+    if (size == maxSize) return; // heap is full, do nothing
+    if (hasKey(key)) return;     // key already exists, do nothing
+    a[++size] = {key, value};
+    pos[key] = size;
+    upHeap(size);
+}
+
+// Decrease value of key to the indicated value
+template <class K, class V>
+void MinHeap<K,V>::decreaseKey(const K& key, const V& value) {
+    if (!hasKey(key)) return; // key does not exist, do nothing
+    int i = pos[key];
+    if (value > a[i].value) return; // value would increase, do nothing
+    a[i].value = value;
+    upHeap(i);
+}
+
+// remove and return key with smaller value
+template <class K, class V>
+K MinHeap<K,V>::removeMin() {
+    if (size == 0) return KEY_NOT_FOUND;
+    K min = a[1].key;
+    pos.erase(min);
+    a[1] = a[size--];
+    downHeap(1);
+    return min;
+}
+
+#endif
+
+
 
 #endif //DA2_PROJETO_MUTABLEPRIORITYQUEUE_H
