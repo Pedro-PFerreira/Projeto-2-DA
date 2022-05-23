@@ -1,7 +1,7 @@
 #ifndef DA2_PROJETO_GRAPH_H
 #define DA2_PROJETO_GRAPH_H
 
-#include "MutablePriorityQueue.h"
+#include "MinHeap.h"
 #include <vector>
 #include <list>
 #include <iostream>

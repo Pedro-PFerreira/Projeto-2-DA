@@ -5,9 +5,9 @@ void Graph::maximumCapicityPath(int s) {
 
     for (auto node: nodes){
         node.visited = false;
-        node.mincap = INT16_MAX;
+        node.mincap = 0;
     }
-    nodes[s].mincap = 0;
+    nodes[s].mincap = INT16_MAX;
     nodes[s].pred = s;
 
     MinHeap<int, int> Q = MinHeap<int, int>(nodes.size(), -1);
@@ -17,11 +17,12 @@ void Graph::maximumCapicityPath(int s) {
         Node v = nodes[value];
         v.visited = true;
         for (auto edge : v.adj){
+           int value_dest = edge.dest;
            Node w = nodes[edge.dest];
-           if (!w.visited && (v.mincap, edge.capacity) < w.mincap){
+           if (!w.visited && min(v.mincap, edge.capacity) > w.mincap){
                w.mincap = min(v.mincap, edge.capacity);
                w.pred = value;
-               Q.increaseKey(w, w.mincap);
+               Q.increaseKey(value_dest, w.mincap);
            }
         }
     }

@@ -1,5 +1,5 @@
-#ifndef DA2_PROJETO_MUTABLEPRIORITYQUEUE_H
-#define DA2_PROJETO_MUTABLEPRIORITYQUEUE_H
+#ifndef DA2_PROJETO_MINHEAP_H
+#define DA2_PROJETO_MINHEAP_H
 
 #ifndef _MINHEAP_H_
 #define _MINHEAP_H_
@@ -138,11 +138,11 @@ K MinHeap<K,V>::removeMax() {
     if (size == 0) return KEY_NOT_FOUND;
     K max = a[size].key;
     pos.erase(max);
-    a[size] = a[size--];
+    size--;
     downHeap(size);
     return max;
 }
 
 #endif
 
-#endif //DA2_PROJETO_MUTABLEPRIORITYQUEUE_H
+#endif //DA2_PROJETO_MINHEAP_H
