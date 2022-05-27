@@ -4,6 +4,7 @@
 #include "MinHeap.h"
 #include <vector>
 #include <list>
+#include <queue>
 #include <iostream>
 #include <climits>
 
@@ -64,9 +65,11 @@ public:
 
     vector<Node> getNodes() const {return  this->nodes;}
 
-    void maximumCapicityPath(int s);
+    void maximumCapacityPath(int s);
 
     void setDuration(int s, int dur);
+
+    void bfs(int v);
 
 };
 

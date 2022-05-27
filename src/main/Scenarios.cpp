@@ -18,7 +18,7 @@ Scenarios::Scenarios(Graph g) : g(g) {
 Graph Scenarios::getG() {return this->g;}
 
 void Scenarios::unseparateGroups() {
-    g.maximumCapicityPath(1);
+    g.maximumCapacityPath(1);
 }
 
 void Scenarios::separateGroups() {}

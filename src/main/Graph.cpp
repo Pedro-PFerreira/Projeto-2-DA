@@ -1,7 +1,7 @@
 #include "Graph.h"
 
 
-void Graph::maximumCapicityPath(int s) {
+void Graph::maximumCapacityPath(int s) {
 
     for (auto node: nodes){
         node.visited = false;
@@ -29,3 +29,23 @@ void Graph::maximumCapicityPath(int s) {
 }
 
 void Graph::setDuration(int s, int dur) {nodes[s].duration = dur;}
+
+void Graph::bfs(int v) {
+    for (int v=1; v<=n; v++) nodes[v].visited = false;
+    queue<int> q; // queue of unvisited nodes
+    q.push(v);
+    nodes[v].mincap = 0;
+    nodes[v]. visited = true;
+    while (!q.empty()) { // while there are still unvisited nodes
+        int u = q.front(); q.pop();
+        cout << u << " "; // show node order
+        for (auto e : nodes[u].adj) {
+            int w = e.dest;
+            if (!nodes[w].visited) {
+                q.push(w);
+                nodes[w].visited = true;
+                nodes[w].mincap = nodes[u].mincap +1;
+            }
+        }
+    }
+}
