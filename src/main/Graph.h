@@ -11,9 +11,16 @@
 using namespace std;
 
 class Graph {
+
+    struct flow {
+        int origin;
+        int destiny;
+        int value;
+    };
     struct Edge {
         int dest;
         int capacity;
+        flow f[2];
     };
 
     struct Node {
@@ -27,6 +34,7 @@ class Graph {
     int n;              // Graph size (vertices are numbered from 1 to n)
     bool hasDir;        // false: undirect; true: directed
     vector<Node> nodes; // The list of nodes being represented
+    int capPath;
 
     void dijkstra(int s) {
         MinHeap<int, int> q(n, -1);
@@ -51,6 +59,8 @@ class Graph {
         }
     }
 
+
+
 public:
     // Constructor: nr nodes and direction (default: undirected)
     Graph(int nodes, bool dir): n(nodes), hasDir(dir), nodes(nodes+1) {
@@ -63,14 +73,21 @@ public:
         if (!hasDir) nodes[dest].adj.push_back({src, capacity});
     };
 
-    vector<Node> getNodes() const {return  this->nodes;}
-
-    void maximumCapacityPath(int s);
-
     void setDuration(int s, int dur);
+
+    void setCapacityPath(int s);
+
+    int getCapacity() const {return this->capPath;}
+
+    vector<Node> getNodes() const {return this->nodes;}
+
+    int getSize() const {return this->n;}
 
     void bfs(int v);
 
+    void maximumCapacityPath(int s);
+
+    int getResidCapEdge(int u, int v);
 };
 
 #endif //DA2_PROJETO_GRAPH_H

@@ -1,5 +1,6 @@
 #include "Graph.h"
 
+void Graph::setDuration(int s, int dur) {nodes[s].duration = dur;}
 
 void Graph::maximumCapacityPath(int s) {
 
@@ -26,12 +27,20 @@ void Graph::maximumCapacityPath(int s) {
            }
         }
     }
+    for (int i = 0; i <= n; i++){
+        capPath += nodes[i].mincap;
+    }
 }
 
-void Graph::setDuration(int s, int dur) {nodes[s].duration = dur;}
+int Graph::getResidCapEdge(int u, int v) {
+    for (auto edge: nodes[u].adj){
+        if (edge.dest == v)
+            return edge.capacity - edge.f.value;
+    }
+}
 
 void Graph::bfs(int v) {
-    for (int v=1; v<=n; v++) nodes[v].visited = false;
+    for (int s=1; s<=n; s++) nodes[s].visited = false;
     queue<int> q; // queue of unvisited nodes
     q.push(v);
     nodes[v].mincap = 0;

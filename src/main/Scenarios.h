@@ -15,18 +15,19 @@ class Scenarios {
 private:
     vector<Journey> journeys;
 
-    Graph g;
+    Graph g, residualGraph;
 
     void makeGraph(const vector<Journey>& j);
 
+    int fordFelkurson();
 public:
-    Scenarios(Graph g);
+    Scenarios(Graph g, Graph residual);
+
+    Graph getG();
 
     void unseparateGroups();
 
     void separateGroups();
-
-    Graph getG();
 
 };
 
