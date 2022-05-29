@@ -35,7 +35,7 @@ void Graph::maximumCapacityPath(int s) {
 int Graph::getResidCapEdge(int u, int v) {
     for (auto edge: nodes[u].adj){
         if (edge.dest == v)
-            return edge.capacity - edge.f.value;
+            return edge.capacity - edge.f->value;
     }
 }
 

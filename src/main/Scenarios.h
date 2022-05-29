@@ -7,6 +7,8 @@
 #include "Graph.h"
 
 #include <vector>
+#include <list>
+#include <queue>
 
 using namespace std;
 
@@ -20,6 +22,8 @@ private:
     void makeGraph(const vector<Journey>& j);
 
     int fordFelkurson();
+
+    int EdmondsKarp(Graph graph, int s, int t);
 public:
     Scenarios(Graph g, Graph residual);
 

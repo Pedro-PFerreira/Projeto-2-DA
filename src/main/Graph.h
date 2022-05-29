@@ -12,15 +12,10 @@ using namespace std;
 
 class Graph {
 
-    struct flow {
-        int origin;
-        int destiny;
-        int value;
-    };
     struct Edge {
         int dest;
         int capacity;
-        flow f[2];
+        int flow, revflow;
     };
 
     struct Node {
