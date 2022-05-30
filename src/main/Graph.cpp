@@ -35,7 +35,7 @@ void Graph::maximumCapacityPath(int s) {
 int Graph::getResidCapEdge(int u, int v) {
     for (auto edge: nodes[u].adj){
         if (edge.dest == v)
-            return edge.capacity - edge.f->value;
+            return edge.capacity - edge.flow;
     }
 }
 
@@ -44,7 +44,7 @@ void Graph::bfs(int v) {
     queue<int> q; // queue of unvisited nodes
     q.push(v);
     nodes[v].mincap = 0;
-    nodes[v]. visited = true;
+    nodes[v].visited = true;
     while (!q.empty()) { // while there are still unvisited nodes
         int u = q.front(); q.pop();
         cout << u << " "; // show node order
@@ -57,4 +57,40 @@ void Graph::bfs(int v) {
             }
         }
     }
+}
+
+bool Graph::hasvisited() {
+    bfs(1);
+    return nodes[n].visited;
+}
+
+
+int Graph::fordFelkurson() {
+    int max_capacity = 0;
+    for (int i = 0; i <= n; i++){
+        for (auto edge: nodes[i].adj){
+            edge.flow = 0;
+            edge.revflow = 0;
+        }
+    }
+
+    while (this->hasvisited()){
+
+        for (int u = 1; u <= n; u++){
+            for(auto edge : nodes[u].adj){
+                int v = edge.dest;
+                this->setCapacityPath(min(this->getResidCapEdge(u, v), edge.capacity));
+                edge.flow = edge.flow + this->getResidCapEdge(u,v);
+                edge.revflow = -edge.flow;
+            }
+        }
+        this->maximumCapacityPath(1);
+    }
+    for (auto node : nodes){
+        for (auto edge : node.adj){
+            if (edge.dest == n)
+                max_capacity += edge.flow;
+        }
+    }
+    return max_capacity;
 }

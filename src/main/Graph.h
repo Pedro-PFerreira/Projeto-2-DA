@@ -58,8 +58,7 @@ class Graph {
 
 public:
     // Constructor: nr nodes and direction (default: undirected)
-    Graph(int nodes, bool dir): n(nodes), hasDir(dir), nodes(nodes+1) {
-    };
+    Graph(int nodes, bool dir): n(nodes), hasDir(dir), nodes(nodes+1) {};
 
     // Add edge from source to destination with a certain capacity
     void addEdge(int src, int dest, int capacity){
@@ -74,7 +73,7 @@ public:
 
     int getCapacity() const {return this->capPath;}
 
-    vector<Node> getNodes() const {return this->nodes;}
+    vector<Node> getNodes() {return this->nodes;}
 
     int getSize() const {return this->n;}
 
@@ -83,6 +82,10 @@ public:
     void maximumCapacityPath(int s);
 
     int getResidCapEdge(int u, int v);
+
+    bool hasvisited();
+
+    int fordFelkurson();
 };
 
 #endif //DA2_PROJETO_GRAPH_H

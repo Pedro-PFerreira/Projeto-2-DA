@@ -25,7 +25,7 @@ private:
 
     int EdmondsKarp(Graph graph, int s, int t);
 public:
-    Scenarios(Graph g, Graph residual);
+    Scenarios(Graph g);
 
     Graph getG();
 
