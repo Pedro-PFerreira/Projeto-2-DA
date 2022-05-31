@@ -7,6 +7,8 @@
 #include "Graph.h"
 
 #include <vector>
+#include <list>
+#include <queue>
 
 using namespace std;
 
@@ -15,18 +17,19 @@ class Scenarios {
 private:
     vector<Journey> journeys;
 
-    Graph g;
+    Graph g, residualGraph;
 
     void makeGraph(const vector<Journey>& j);
 
+    //int EdmondsKarp(Graph graph, int s, int t);
 public:
-    Scenarios(Graph g);
+    explicit Scenarios(Graph& g);
+
+    Graph getG();
 
     void unseparateGroups();
 
     void separateGroups();
-
-    Graph getG();
 
 };
 
