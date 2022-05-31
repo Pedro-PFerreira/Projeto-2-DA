@@ -6,7 +6,7 @@ void Scenarios::makeGraph(const vector<Journey>& j) {
         this->g.setDuration(journey.origin, journey.duration);
     }
 }
-
+/*
 int Scenarios::EdmondsKarp(Graph graph, int s, int t) {
      int max_flow = 0;
      auto nodes = graph.getNodes();
@@ -26,26 +26,13 @@ int Scenarios::EdmondsKarp(Graph graph, int s, int t) {
                  }
              }
          }
-
-         /*if (pred[t] != NULL){
-             int df = INT16_MAX;
-             //TODO Adivinhar expressão do ciclo for
-             for(;;){
-                 df = min(df, edge.cap -edge.flow);
-             }
-             for(;;){
-                 edge.flow += df;
-                 edge.revflow -= df;
-             }
-            max_flow += df;
-         }*/
      }
 
      return max_flow;
 }
+*/
 
-
-Scenarios::Scenarios(Graph g) : g(g), residualGraph(g) {
+Scenarios::Scenarios(Graph& g) : g(g), residualGraph(g) {
     FileReader fileReader = FileReader("../input/in01_b.txt");
     this->journeys = fileReader.getJourneys();
     makeGraph(this->journeys);

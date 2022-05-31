@@ -69,7 +69,7 @@ public:
 
     void setDuration(int s, int dur);
 
-    void setCapacityPath(int s);
+    static void setCapacityPath(Edge edge, int value);
 
     int getCapacity() const {return this->capPath;}
 
@@ -86,6 +86,8 @@ public:
     bool hasvisited();
 
     int fordFelkurson();
+
+    list<int> bfs_path(int a, int b);
 };
 
 #endif //DA2_PROJETO_GRAPH_H

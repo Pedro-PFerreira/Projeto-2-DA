@@ -21,11 +21,9 @@ private:
 
     void makeGraph(const vector<Journey>& j);
 
-    int fordFelkurson();
-
-    int EdmondsKarp(Graph graph, int s, int t);
+    //int EdmondsKarp(Graph graph, int s, int t);
 public:
-    Scenarios(Graph g);
+    explicit Scenarios(Graph& g);
 
     Graph getG();
 

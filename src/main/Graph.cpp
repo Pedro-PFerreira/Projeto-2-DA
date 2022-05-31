@@ -11,7 +11,7 @@ void Graph::maximumCapacityPath(int s) {
     nodes[s].mincap = INT16_MAX;
     nodes[s].pred = s;
 
-    MinHeap<int, int> Q = MinHeap<int, int>(nodes.size(), -1);
+    MinHeap<int, int> Q = MinHeap<int, int>((int) nodes.size(), -1);
 
     while(Q.getSize() == 0){
         int value = Q.removeMax();
@@ -32,11 +32,16 @@ void Graph::maximumCapacityPath(int s) {
     }
 }
 
+void Graph::setCapacityPath(Edge edge, int value) {
+    edge.capacity = value;
+}
+
 int Graph::getResidCapEdge(int u, int v) {
     for (auto edge: nodes[u].adj){
         if (edge.dest == v)
             return edge.capacity - edge.flow;
     }
+    return -1;
 }
 
 void Graph::bfs(int v) {
@@ -54,6 +59,7 @@ void Graph::bfs(int v) {
                 q.push(w);
                 nodes[w].visited = true;
                 nodes[w].mincap = nodes[u].mincap +1;
+                nodes[w].pred = u;
             }
         }
     }
@@ -64,6 +70,17 @@ bool Graph::hasvisited() {
     return nodes[n].visited;
 }
 
+list<int> Graph::bfs_path(int a, int b){
+    list<int> path;
+    if (!nodes[b].visited) return path;
+    path.push_back(b);
+    int v = b;
+    while (v != a){
+        v = nodes[v].pred;
+        path.push_front(v);
+    }
+    return path;
+}
 
 int Graph::fordFelkurson() {
     int max_capacity = 0;
@@ -74,23 +91,37 @@ int Graph::fordFelkurson() {
         }
     }
 
-    while (this->hasvisited()){
-
+    while (!this->hasvisited()){
+        list<int> path = bfs_path(1,n);
         for (int u = 1; u <= n; u++){
-            for(auto edge : nodes[u].adj){
-                int v = edge.dest;
-                this->setCapacityPath(min(this->getResidCapEdge(u, v), edge.capacity));
-                edge.flow = edge.flow + this->getResidCapEdge(u,v);
-                edge.revflow = -edge.flow;
+            if(nodes[u].visited){
+                for(auto edge : nodes[u].adj){
+                    int v = edge.dest;
+                    if(nodes[v].visited){
+                        this->setCapacityPath(edge, min(this->getResidCapEdge(u, v), edge.capacity));
+                        edge.flow = edge.flow + this->getResidCapEdge(u,v);
+                        edge.revflow = -edge.flow;
+                    }
+                }
             }
+
         }
-        this->maximumCapacityPath(1);
+        //this->maximumCapacityPath(1);
     }
-    for (auto node : nodes){
+    for (const Node& node : nodes){
         for (auto edge : node.adj){
             if (edge.dest == n)
                 max_capacity += edge.flow;
         }
     }
+
+    list<int> path = bfs_path(1,n);
+
+    for (auto node : path){
+        cout << node;
+    }
+
     return max_capacity;
 }
+
+
