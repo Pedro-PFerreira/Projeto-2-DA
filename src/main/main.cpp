@@ -11,5 +11,6 @@ int main() {
 
     Scenarios scenarios = Scenarios(g);
     scenarios.unseparateGroups();
+    scenarios.separateGroups();
     return 0;
 }

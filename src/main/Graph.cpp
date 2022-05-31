@@ -4,32 +4,39 @@ void Graph::setDuration(int s, int dur) {nodes[s].duration = dur;}
 
 void Graph::maximumCapacityPath(int s) {
 
+    set<int> Q;
+
     for (auto node: nodes){
         node.visited = false;
         node.mincap = 0;
     }
     nodes[s].mincap = INT16_MAX;
-    nodes[s].pred = s;
+    Q.insert(s);
 
-    MinHeap<int, int> Q = MinHeap<int, int>((int) nodes.size(), -1);
-
-    while(Q.getSize() == 0){
-        int value = Q.removeMax();
-        Node v = nodes[value];
-        v.visited = true;
-        for (auto edge : v.adj){
-           int value_dest = edge.dest;
-           Node w = nodes[edge.dest];
-           if (!w.visited && min(v.mincap, edge.capacity) > w.mincap){
-               w.mincap = min(v.mincap, edge.capacity);
-               w.pred = value;
-               Q.increaseKey(value_dest, w.mincap);
+    while(!Q.empty()){
+        auto end = Q.end(); end--;
+        int value = (*end);
+        Q.erase(end);
+        nodes[value].visited = true;
+        for (auto edge : nodes[value].adj){
+           int w = edge.dest;
+           if (!nodes[w].visited && min(nodes[value].mincap, edge.capacity) > nodes[w].mincap){
+               nodes[w].mincap = min(nodes[value].mincap, edge.capacity);
+               nodes[w].pred = value;
+               nodes[w].visited = true;
+               Q.insert(w);
            }
         }
     }
+
     for (int i = 0; i <= n; i++){
-        capPath += nodes[i].mincap;
+        if (nodes[i].visited) {
+            capPath += nodes[i].mincap;
+            cout << "Lets see if u reach " << i << endl;
+        }
+
     }
+    cout << capPath << endl;
 }
 
 void Graph::setCapacityPath(Edge edge, int value) {

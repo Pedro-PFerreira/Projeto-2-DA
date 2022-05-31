@@ -33,7 +33,7 @@ int Scenarios::EdmondsKarp(Graph graph, int s, int t) {
 */
 
 Scenarios::Scenarios(Graph& g) : g(g), residualGraph(g) {
-    FileReader fileReader = FileReader("../input/in01_b.txt");
+    FileReader fileReader = FileReader("../input/in02_b.txt");
     this->journeys = fileReader.getJourneys();
     makeGraph(this->journeys);
 }
@@ -41,8 +41,11 @@ Scenarios::Scenarios(Graph& g) : g(g), residualGraph(g) {
 Graph Scenarios::getG() {return this->g;}
 
 void Scenarios::unseparateGroups() {
+   g.maximumCapacityPath(1);
+}
+
+void Scenarios::separateGroups() {
+
     residualGraph = g;
     residualGraph.fordFelkurson();
 }
-
-void Scenarios::separateGroups() {}
