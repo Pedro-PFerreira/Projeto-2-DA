@@ -29,6 +29,8 @@ public:
 
     void UGmaxCapacity(); //unseparate group max capacity
 
+    void UGoptimal();
+
     void separateGroups();
 
 };

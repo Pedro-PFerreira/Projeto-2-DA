@@ -10,7 +10,7 @@ int main() {
     Graph g = Graph(fileReader.getNumLocals(), true);
 
     Scenarios scenarios = Scenarios(g);
-    scenarios.unseparateGroups();
-    /*scenarios.separateGroups();*/
+    //scenarios.UGmaxCapacity();
+    scenarios.separateGroups();
     return 0;
 }

@@ -1,7 +1,3 @@
-//
-// Created by Utilizador on 30/05/2022.
-//
-
 #ifndef DA_PROJECT2_MAXHEAP_H
 #define DA_PROJECT2_MAXHEAP_H
 
@@ -72,64 +68,49 @@ public:
         return size() == 0;
     }
 
-    // insert key into the heap
     void push(int i, T value)
     {
-        // insert a new element at the end of the vector
         A.push_back(
                 std::pair<int, T>(
                         i,
                         value
                         ));
 
-        // get element index and call heapify-up procedure
         int index = size() - 1;
         heapify_up(index);
     }
 
-// Function to remove an element with the highest priority (present at the root)
     void pop()
     {
         try {
-            // if the heap has no elements, throw an exception
             if (size() == 0)
             {
                 throw std::out_of_range("Vector<X>::at() : "
                                    "index is out of range(Heap underflow)");
             }
-
-            // replace the root of the heap with the last element
-            // of the vector
             A[0] = A.back();
             A.pop_back();
 
-            // call heapify-down on the root node
             heapify_down(0);
         }
-            // catch and print the exception
         catch (const std::out_of_range &oor) {
             std::cout << std::endl << oor.what();
         }
     }
-// Function to return an element with the highest priority (present at the root)
     std::pair<int, T> top()
     {
         try {
-            // if the heap has no elements, throw an exception
             if (size() == 0)
             {
                 throw std::out_of_range("Vector<X>::at() : "
                                    "index is out of range(Heap underflow)");
             }
 
-            // otherwise, return the top (first) element
-            return A.at(0);        // or return A[0];
+            return A.at(0);
         }
-            // catch and print the exception
         catch (const std::out_of_range &oor) {
             std::cout << std::endl << oor.what();
         }
-        //return std::pair<int, T> (0, NULL);
     }
 };
 

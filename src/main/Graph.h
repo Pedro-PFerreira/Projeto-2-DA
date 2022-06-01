@@ -8,6 +8,7 @@
 #include <climits>
 #include <set>
 #include "maxHeap.h"
+#include <stack>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ class Graph {
     struct Edge {
         int dest;
         int capacity;
-        int flow, revflow;
+        int flow, resflow;
     };
 
     struct Node {
@@ -45,8 +46,6 @@ public:
 
     void setDuration(int s, int dur);
 
-    static void setCapacityPath(Edge edge, int value);
-
     int getCapacity() const {return this->capPath;}
 
     vector<Node> getNodes() {return this->nodes;}
@@ -59,9 +58,7 @@ public:
 
     int getResidCapEdge(int u, int v);
 
-    bool hasvisited();
-
-    int fordFelkurson();
+    void fordFulkerson();
 
     list<int> bfs_path(int a, int b);
 };
