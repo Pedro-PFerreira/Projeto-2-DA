@@ -7,6 +7,7 @@
 #include <iostream>
 #include <climits>
 #include <set>
+#include "maxHeap.h"
 
 using namespace std;
 
@@ -54,7 +55,7 @@ public:
 
     void bfs(int v);
 
-    void maximumCapacityPath(int s);
+    void maximumCapacityPath(int s, int t);
 
     int getResidCapEdge(int u, int v);
 

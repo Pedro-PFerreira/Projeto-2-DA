@@ -27,7 +27,7 @@ public:
 
     Graph getG();
 
-    void unseparateGroups();
+    void UGmaxCapacity(); //unseparate group max capacity
 
     void separateGroups();
 

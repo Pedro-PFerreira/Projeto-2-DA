@@ -1,7 +1,7 @@
 #include "Graph.h"
 
 void Graph::setDuration(int s, int dur) {nodes[s].duration = dur;}
-
+/*
 void Graph::maximumCapacityPath(int s) {
 
     set<int> Q;
@@ -37,6 +37,37 @@ void Graph::maximumCapacityPath(int s) {
 
     }
     cout << capPath << endl;
+}
+*/
+
+void Graph::maximumCapacityPath(int s, int t) {
+    for (unsigned int i = 0; i < nodes.size(); i++){
+        nodes.at(i).pred = NULL;
+        nodes.at(i).mincap = 0;
+    }
+    nodes[s].mincap = INT_MAX;
+    maxHeap<int> priorQueue;
+    priorQueue.push(nodes[s].mincap, s);
+
+    while(!priorQueue.empty()){
+        pair<int, int> v = priorQueue.top();
+        priorQueue.pop();
+        for (Edge edge : nodes[v.second].adj){
+            int w = edge.dest;
+            if(min(nodes[v.second].mincap, edge.capacity) > nodes[w].mincap){
+                nodes[w].mincap = min(nodes[v.second].mincap, edge.capacity);
+                nodes[w].pred = v.second;
+                priorQueue.push(nodes[w].mincap, w);
+            }
+        }
+    }
+    int dest = t;
+    while(nodes[dest].pred != NULL){
+       cout << dest << " - ";
+       dest = nodes[dest].pred;
+    }
+    cout << dest;
+    cout << endl<< nodes[t].mincap;
 }
 
 void Graph::setCapacityPath(Edge edge, int value) {
