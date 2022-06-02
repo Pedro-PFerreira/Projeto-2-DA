@@ -10,7 +10,8 @@ int main() {
     Graph g = Graph(fileReader.getNumLocals(), true);
 
     Scenarios scenarios = Scenarios(g);
-    //scenarios.UGmaxCapacity();
+    scenarios.UGmaxCapacity();
+    cout << "FORD-FULKERSON" << endl;
     scenarios.separateGroups();
     return 0;
 }

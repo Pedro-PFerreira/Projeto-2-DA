@@ -106,11 +106,11 @@ public:
                                    "index is out of range(Heap underflow)");
             }
 
-            return A.at(0);
         }
         catch (const std::out_of_range &oor) {
             std::cout << std::endl << oor.what();
         }
+        return A.at(0);
     }
 };
 

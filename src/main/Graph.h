@@ -15,9 +15,10 @@ using namespace std;
 class Graph {
 
     struct Edge {
+        bool available;
         int dest;
         int capacity;
-        int flow, resflow;
+        int flow;
     };
 
     struct Node {
@@ -40,23 +41,21 @@ public:
 
     void addEdge(int src, int dest, int capacity){
         if (src<1 || src>n || dest<1 || dest>n) return;
-        nodes[src].adj.push_back({dest, capacity});
-        if (!hasDir) nodes[dest].adj.push_back({src, capacity});
+        nodes[src].adj.push_back({ true, dest, capacity});
+        if (!hasDir) nodes[dest].adj.push_back({true, src, capacity});
     };
 
     void setDuration(int s, int dur);
 
-    int getCapacity() const {return this->capPath;}
+    int getMaxFLow();
 
     vector<Node> getNodes() {return this->nodes;}
 
     int getSize() const {return this->n;}
 
-    void bfs(int v);
+    bool bfs(int v);
 
     void maximumCapacityPath(int s, int t);
-
-    int getResidCapEdge(int u, int v);
 
     void fordFulkerson();
 

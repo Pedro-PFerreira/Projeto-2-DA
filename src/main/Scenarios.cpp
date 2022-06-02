@@ -40,8 +40,8 @@ Scenarios::Scenarios(Graph& g) : g(g), residualGraph(g) {
 
 Graph Scenarios::getG() {return this->g;}
 
-void Scenarios::UGmaxCapacity() {
-   g.maximumCapacityPath(1, 300);
+void Scenarios::UGmaxCapacity() { //1.1
+   g.maximumCapacityPath(1, g.getSize());
 }
 
 void Scenarios::UGoptimal() {
