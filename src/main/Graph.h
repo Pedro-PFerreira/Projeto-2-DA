@@ -19,6 +19,7 @@ class Graph {
         int dest;
         int capacity;
         int flow;
+        bool is_reversed;
     };
 
     struct Node {
@@ -39,15 +40,14 @@ public:
     Graph(int nodes, bool dir): n(nodes), hasDir(dir), nodes(nodes+1) {};
 
 
-    void addEdge(int src, int dest, int capacity){
+    void addEdge(int src, int dest, int capacity, int  flow, bool is_reversed){
         if (src<1 || src>n || dest<1 || dest>n) return;
         nodes[src].adj.push_back({ true, dest, capacity});
-        if (!hasDir) nodes[dest].adj.push_back({true, src, capacity});
+        if (!hasDir) nodes[dest].adj.push_back({true, src, capacity, flow, is_reversed});
     };
-
     void setDuration(int s, int dur);
 
-    int getMaxFLow();
+    int getMaxFlow();
 
     vector<Node> getNodes() {return this->nodes;}
 
@@ -58,6 +58,8 @@ public:
     void maximumCapacityPath(int s, int t);
 
     void fordFulkerson();
+
+    void fordFulkersonFlow(int in_flow);
 
     list<int> bfs_path(int a, int b);
 };

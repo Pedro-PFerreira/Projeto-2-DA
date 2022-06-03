@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    FileReader fileReader = FileReader("../input/in01_b.txt");
+    FileReader fileReader = FileReader("../input/in03_b.txt");
 
     Graph g = Graph(fileReader.getNumLocals(), true);
 
@@ -13,5 +13,6 @@ int main() {
     scenarios.UGmaxCapacity();
     cout << "FORD-FULKERSON" << endl;
     scenarios.separateGroups();
+
     return 0;
 }

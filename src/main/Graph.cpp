@@ -2,7 +2,7 @@
 
 void Graph::setDuration(int s, int dur) {nodes[s].duration = dur;}
 
-void Graph::maximumCapacityPath(int s, int t) {
+void Graph::maximumCapacityPath(int s, int t) { //DONE
     for (Node node: nodes){
         node.pred = 0;
         node.mincap = 0;
@@ -77,7 +77,7 @@ list<int> Graph::bfs_path(int a, int b){
     return path;
 }
 
-int Graph::getMaxFLow() {
+int Graph::getMaxFlow() {
     int max_flow = INT16_MAX;
     for (Node& node : nodes){
         for (Edge edge : node.adj){
@@ -89,9 +89,9 @@ int Graph::getMaxFLow() {
 }
 
 void Graph::fordFulkerson() {
+
     int max_flow = 0;
 
-    //Init
     for (int i = 0; i <= n; i++) {
         for (Edge edge: nodes[i].adj) {
             nodes[edge.dest].pred = i;
@@ -99,25 +99,39 @@ void Graph::fordFulkerson() {
         }
     }
     list<int> path = bfs_path(1,n);
-    while(bfs(1)){
-        int path_flow = getMaxFLow();
+    while(bfs(1)) {
+        int path_flow = getMaxFlow();
         for (int i = 1; i <= n; i++){
-            for(auto edge = nodes[i].adj.begin(); edge != nodes[i].adj.end(); edge++){
-                if ((*edge).available){
+
+            vector<Edge> aux_edges;
+            Edge auxEdge;
+            int auxEdgeOrigin;
+            for (auto edge = nodes[i].adj.begin(); edge != nodes[i].adj.end(); edge++) {
+                if ((*edge).available) {
                     (*edge).capacity -= path_flow;
                     (*edge).flow = path_flow;
-                    if ((*edge).capacity == 0){
+                    if(!(*edge).is_reversed){
+                        (*edge).is_reversed = true;
+                        auxEdge.available = true;
+                        auxEdge.dest = i;
+                        auxEdgeOrigin = edge->dest;
+                        auxEdge.capacity = capPath;
+                        auxEdge.flow = path_flow;
+                        auxEdge.is_reversed = true;
+                        aux_edges.push_back(auxEdge);
+                    }
+
+                    if ((*edge).capacity == 0) {
                         (*edge).available = false;
                     }
                 }
-
             }
+            for(auto newEdge: aux_edges) {
+                addEdge(auxEdgeOrigin,auxEdge.dest,newEdge.capacity, newEdge.flow, newEdge.is_reversed);
+            }
+
         }
     }
-
-
-    //PRINTAGEM blahlahblah Vai com calma, Manel
-
     cout << "Path:" << endl;
     for (auto node : path){
         cout << node << " ";
@@ -130,4 +144,27 @@ void Graph::fordFulkerson() {
     }
 
     cout << endl << "Maximum flow:" << max_flow << endl;
+}
+
+void Graph::fordFulkersonFlow(int in_flow) {
+    int max_flow_allowed = getMaxFlow();
+
+    cout << max_flow_allowed << endl;
+    if (max_flow_allowed < in_flow){
+        cout << "Please insert a valid_input" << endl;
+        return;
+    }
+
+    for (int i = 1; i <= n; i++){
+        for (auto edge = nodes[i].adj.begin(); edge != nodes[i].adj.end(); edge++){
+            (*edge).capacity -= in_flow;
+            (*edge).flow = in_flow;
+            if ((*edge).capacity == 0){
+                (*edge).available = false;
+            }
+        }
+    }
+
+    fordFulkerson();
+
 }

@@ -2,7 +2,7 @@
 
 void Scenarios::makeGraph(const vector<Journey>& j) {
     for (auto journey : j){
-        this->g.addEdge(journey.origin, journey.destiny, journey.vehicle.capacity);
+        this->g.addEdge(journey.origin, journey.destiny, journey.vehicle.capacity, 0, false);
         this->g.setDuration(journey.origin, journey.duration);
     }
 }
@@ -33,7 +33,7 @@ int Scenarios::EdmondsKarp(Graph graph, int s, int t) {
 */
 
 Scenarios::Scenarios(Graph& g) : g(g), residualGraph(g) {
-    FileReader fileReader = FileReader("../input/in01_b.txt");
+    FileReader fileReader = FileReader("../input/in03_b.txt");
     this->journeys = fileReader.getJourneys();
     makeGraph(this->journeys);
 }
@@ -51,4 +51,5 @@ void Scenarios::UGoptimal() {
 void Scenarios::separateGroups() {
     residualGraph = g;
     residualGraph.fordFulkerson();
+    //residualGraph.fordFulkersonFlow(3);
 }
