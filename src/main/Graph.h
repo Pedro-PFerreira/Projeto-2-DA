@@ -31,20 +31,35 @@ class Graph {
     };
 
     int n;
-    bool hasDir;
     vector<Node> nodes;
-    int capPath;
+    bool hasDir;
 
 public:
 
     Graph(int nodes, bool dir): n(nodes), hasDir(dir), nodes(nodes+1) {};
 
+    // 1 src -> 3
+    // 3 -> 1 src
+    // 1 src -> 2
+    // 2 -> 4
+    // 4 -> 7 sink
+    // 3 -> 5
+    // 5 -> 7 sink
 
-    void addEdge(int src, int dest, int capacity, int  flow, bool is_reversed){
+    void addEdge(int src, int dest, int capacity, int flow, bool is_reversed){
         if (src<1 || src>n || dest<1 || dest>n) return;
-        nodes[src].adj.push_back({ true, dest, capacity});
-        if (!hasDir) nodes[dest].adj.push_back({true, src, capacity, flow, is_reversed});
+        nodes[src].adj.push_back({ true, dest, capacity, flow, is_reversed});
     };
+
+    void addReverseEdges() {
+        for(int node = 0; node <= n; node++) {
+            for(auto edge: nodes[node].adj) {
+                if(!edge.is_reversed)
+                    addEdge(edge.dest, node, edge.capacity, 0, true);
+            }
+        }
+    }
+
     void setDuration(int s, int dur);
 
     int getMaxFlow();
@@ -55,11 +70,17 @@ public:
 
     bool bfs(int v);
 
+    void bfs1_2(int a, int b);
+
     void maximumCapacityPath(int s, int t);
 
-    void fordFulkerson();
+    void maximumCapacityPath1_2(int s, int t);
+
+    void edmondsKarp();
 
     void fordFulkersonFlow(int in_flow);
+
+    bool findReversePath(int src, int dest);
 
     list<int> bfs_path(int a, int b);
 };

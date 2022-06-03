@@ -6,34 +6,9 @@ void Scenarios::makeGraph(const vector<Journey>& j) {
         this->g.setDuration(journey.origin, journey.duration);
     }
 }
-/*
-int Scenarios::EdmondsKarp(Graph graph, int s, int t) {
-     int max_flow = 0;
-     auto nodes = graph.getNodes();
-     int pred[graph.getSize()];
-     while(pred[t] != NULL){
-         graph.bfs(s);
-         queue<int> q;
-         q.push(1);
-
-         while (!q.empty()){
-             int cur = q.front();
-             q.pop();
-             for (auto edge : nodes[cur].adj){
-                 if ((pred[edge.dest] == NULL) && (edge.dest != s) && (edge.capacity > edge.flow)){
-                     pred[edge.dest] = cur;
-                     q.push(edge.dest);
-                 }
-             }
-         }
-     }
-
-     return max_flow;
-}
-*/
 
 Scenarios::Scenarios(Graph& g) : g(g), residualGraph(g) {
-    FileReader fileReader = FileReader("../input/in03_b.txt");
+    FileReader fileReader = FileReader("../input/afonso.txt");
     this->journeys = fileReader.getJourneys();
     makeGraph(this->journeys);
 }
@@ -45,11 +20,13 @@ void Scenarios::UGmaxCapacity() { //1.1
 }
 
 void Scenarios::UGoptimal() {
-
+    cout << "The optimal solutions will be between these values: " << endl;
+    g.bfs1_2(1, g.getSize());
+    g.maximumCapacityPath1_2(1, g.getSize());
 }
 
 void Scenarios::separateGroups() {
     residualGraph = g;
-    residualGraph.fordFulkerson();
+    residualGraph.edmondsKarp();
     //residualGraph.fordFulkersonFlow(3);
 }

@@ -21,7 +21,6 @@ private:
 
     void makeGraph(const vector<Journey>& j);
 
-    //int EdmondsKarp(Graph graph, int s, int t);
 public:
     explicit Scenarios(Graph& g);
 
