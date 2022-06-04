@@ -126,27 +126,27 @@ void Graph::bfs1_2(int a, int b){
     cout << "Minimum transhipments: " << counter << endl;
 }
 
-list<int> Graph::bfs_path(int a, int b){
+vector<int> Graph::bfs_path(int a, int b){
     bfs(a);
-    list<int> path;
+    vector<int> path;
     if (!nodes[b].visited) return path;
     path.push_back(b);
     int v = b;
     while (v != a){
         v = nodes[v].pred;
-        path.push_front(v);
+        path.insert(path.begin(), v);
     }
     return path;
 }
 
-int Graph::getMaxFlow() {
+int Graph::getMaxFlow(vector<int> path) {
     int max_flow = INT16_MAX;
-    for (int i = 0; i <= n; i++){
-        if(nodes[i].visited){
-            for (auto edge: nodes[i].adj){
-                if (nodes[edge.dest].visited && edge.available){
-                        max_flow = min(max_flow, edge.capacity);
-                }
+
+    for (int i = 0; i < path.size() - 1; i++){
+        int node = path[i];
+        for (auto edge: nodes[node].adj){
+            if (edge.dest == path[i+1] && edge.available){
+                max_flow = min(max_flow, edge.capacity);
             }
         }
     }
@@ -158,21 +158,23 @@ void Graph::edmondsKarp() {
     addReverseEdges();
 
     int max_flow = 0;
+    vector<int> path;
 
-    for (int i = 0; i <= n; i++) {
+    for (int i = 1; i <= n; i++) {
         for (Edge edge: nodes[i].adj) {
             nodes[edge.dest].pred = i;
             edge.flow = 0;
         }
     }
-    list<int> path = bfs_path(1,n);
-    while(bfs(1)) {
-        int path_flow = getMaxFlow();
-        cout << "Path flow: " << path_flow << endl;
 
-        for (int i = 1; i <= n; i++){
-            for (auto edge = nodes[i].adj.begin(); edge != nodes[i].adj.end(); edge++) {
-                if ((*edge).available) {
+    while(bfs(1)) {
+        path = bfs_path(1,n);
+        int path_flow = getMaxFlow(path);
+        max_flow += path_flow;
+        for (int i = 0; i < path.size()- 1; i++){
+            int node = path[i];
+            for (auto edge = nodes[node].adj.begin(); edge != nodes[node].adj.end(); edge++) {
+                if ((*edge).available && (*edge).dest == path[i + 1]) {
                     if(!(*edge).is_reversed) {
                         (*edge).capacity -= path_flow;
                     } else {
@@ -180,7 +182,7 @@ void Graph::edmondsKarp() {
                         (*edge).available = true;
                     }
 
-                    (*edge).flow = path_flow;
+                    (*edge).flow += path_flow;
 
                     if ((*edge).capacity == 0) {
                         (*edge).available = false;
@@ -189,18 +191,7 @@ void Graph::edmondsKarp() {
             }
         }
     }
-
-    cout << "Path:" << endl;
-    for (auto node : path){
-        cout << node << " ";
-    }
-
-    for(int i= 1; i <= n; i++){
-        for(Edge edge : nodes[i].adj){
-            if (edge.dest == n) max_flow += edge.flow;
-        }
-    }
-
+    
     cout << endl << "Maximum flow:" << max_flow << endl;
 }
 
@@ -211,7 +202,8 @@ bool Graph::findReversePath(int src, int dest) {
 }
 
 void Graph::fordFulkersonFlow(int in_flow) {
-    int max_flow_allowed = getMaxFlow();
+
+    int max_flow_allowed = 0; //getMaxFlow(); TODO
 
     cout << max_flow_allowed << endl;
     if (max_flow_allowed < in_flow){

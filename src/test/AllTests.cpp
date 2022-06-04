@@ -31,9 +31,11 @@ TEST(TEST_2, checkGraphs){
     ASSERT_EQ(fileReader.getNumJourneys(), counter);
 }
 
+/*
 TEST(TEST_3,checkIfGraphAndResidualGraphHaveDifferentAddresses) {
     FileReader fileReader = FileReader("../input/in01_b.txt");
     Scenarios scenarios(Graph(fileReader.getNumLocals(),true));
 
     scenarios.unseparateGroups();
 }
+ */

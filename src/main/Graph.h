@@ -23,7 +23,7 @@ class Graph {
     };
 
     struct Node {
-        list<Edge> adj;
+        vector<Edge> adj;
         int mincap;
         int pred;
         int duration = 0;
@@ -51,18 +51,23 @@ public:
         nodes[src].adj.push_back({ true, dest, capacity, flow, is_reversed});
     };
 
+    void addRevEdge(int src, int dest, int capacity, int flow, bool is_reversed){
+        if (src<1 || src>n || dest<1 || dest>n) return;
+        nodes[src].adj.push_back({ false, dest, capacity, flow, is_reversed});
+    };
+
     void addReverseEdges() {
         for(int node = 0; node <= n; node++) {
             for(auto edge: nodes[node].adj) {
                 if(!edge.is_reversed)
-                    addEdge(edge.dest, node, edge.capacity, 0, true);
+                    addRevEdge(edge.dest, node, edge.capacity, 0, true);
             }
         }
     }
 
     void setDuration(int s, int dur);
 
-    int getMaxFlow();
+    int getMaxFlow(vector<int> path);
 
     vector<Node> getNodes() {return this->nodes;}
 
@@ -82,7 +87,7 @@ public:
 
     bool findReversePath(int src, int dest);
 
-    list<int> bfs_path(int a, int b);
+    vector<int> bfs_path(int a, int b);
 };
 
 #endif //DA2_PROJETO_GRAPH_H

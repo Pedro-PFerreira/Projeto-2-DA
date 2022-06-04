@@ -8,7 +8,7 @@ void Scenarios::makeGraph(const vector<Journey>& j) {
 }
 
 Scenarios::Scenarios(Graph& g) : g(g), residualGraph(g) {
-    FileReader fileReader = FileReader("../input/afonso.txt");
+FileReader fileReader = FileReader("../input/in03_b.txt");
     this->journeys = fileReader.getJourneys();
     makeGraph(this->journeys);
 }
@@ -21,7 +21,7 @@ void Scenarios::UGmaxCapacity() { //1.1
 
 void Scenarios::UGoptimal() {
     cout << "The optimal solutions will be between these values: " << endl;
-    g.bfs1_2(1, g.getSize());
+    //g.bfs1_2(1, g.getSize());
     g.maximumCapacityPath1_2(1, g.getSize());
 }
 
