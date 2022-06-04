@@ -12,19 +12,42 @@ using namespace std;
 
 class FileReader{
 private:
-  string dirPath;
-  int num_locals, num_journeys;
+    /**
+    * String that contains the file to be read's path.
+    */
+    string dirPath;
+    /**
+    * Number of existent locals.
+    */
+    int num_locals;
+    /**
+    * Number of possible journeys.
+    */
+    int num_journeys;
 
 
 public:
-    FileReader();
-
+    /**
+    * Class constructor.
+    * @param dir is a string that contains the path of the file to be read.
+    */
     explicit FileReader(string dir);
 
+    /**
+    * Method that reads the corresponding file os dirPath. Then, it will collects each journey's data.
+    * @return a vector with all information of company's couriers.
+    */
     vector<Journey> getJourneys();
 
+    /**
+     * @return Number of existent locals.
+     */
     int getNumLocals() const;
 
+    /**
+     *
+     * @return Number of possible journeys.
+     */
     int getNumJourneys() const;
 };
 

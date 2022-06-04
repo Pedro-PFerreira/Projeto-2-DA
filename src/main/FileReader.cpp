@@ -2,9 +2,6 @@
 
 #include <utility>
 
-
-FileReader::FileReader() {this->dirPath = ""; this->num_journeys = 0; this->num_locals= 0;}
-
 FileReader::FileReader(string dir) {
     this->dirPath = move(dir);
     ifstream file;
