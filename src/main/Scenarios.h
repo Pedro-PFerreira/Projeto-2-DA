@@ -21,6 +21,8 @@ private:
 
     void makeGraph(const vector<Journey>& j);
 
+    int max_flow = 0;
+
 public:
     explicit Scenarios(Graph& g);
 
@@ -30,8 +32,11 @@ public:
 
     void UGoptimal();
 
-    void separateGroups();
+    void separatedGroups();
 
+    void pathForGroup(int size);
+
+    void pathForResizedGroup(int size);
 };
 
 

@@ -75,7 +75,7 @@ public:
 
     bool bfs(int v);
 
-    void bfs1_2(int a, int b);
+    int bfs_path1_2(int a, int b);
 
     void maximumCapacityPath(int s, int t);
 
@@ -83,11 +83,13 @@ public:
 
     void edmondsKarp();
 
-    void fordFulkersonFlow(int in_flow);
+    int edmondsKarp2(int size);
 
     bool findReversePath(int src, int dest);
 
     vector<int> bfs_path(int a, int b);
+
+    void static printPath(vector<int>& path);
 };
 
 #endif //DA2_PROJETO_GRAPH_H

@@ -8,7 +8,7 @@ void Scenarios::makeGraph(const vector<Journey>& j) {
 }
 
 Scenarios::Scenarios(Graph& g) : g(g), residualGraph(g) {
-FileReader fileReader = FileReader("../input/in03_b.txt");
+FileReader fileReader = FileReader("../input/in02_b.txt");
     this->journeys = fileReader.getJourneys();
     makeGraph(this->journeys);
 }
@@ -19,14 +19,38 @@ void Scenarios::UGmaxCapacity() { //1.1
    g.maximumCapacityPath(1, g.getSize());
 }
 
-void Scenarios::UGoptimal() {
+void Scenarios::UGoptimal(){
     cout << "The optimal solutions will be between these values: " << endl;
-    //g.bfs1_2(1, g.getSize());
+    vector<int> path = g.bfs_path(1, g.getSize());
+    int min_cap = g.getMaxFlow(path);
+    int transhipments = g.bfs_path1_2(1, g.getSize());
+    cout << "Minimum capacity: " << min_cap << endl;
+    cout << "Minimum transhipments: " << transhipments << endl;
     g.maximumCapacityPath1_2(1, g.getSize());
+
 }
 
-void Scenarios::separateGroups() {
+void Scenarios::separatedGroups() {
     residualGraph = g;
+    cout << "EDMONDS-KARP\nPossible Paths:" << endl;
     residualGraph.edmondsKarp();
-    //residualGraph.fordFulkersonFlow(3);
+    residualGraph.edmondsKarp2(3);
+}
+
+void Scenarios::pathForGroup(int size) {
+    cout << "Paths for this group size: " << endl;
+    residualGraph = g;
+    max_flow = residualGraph.edmondsKarp2(size);
+}
+
+void Scenarios::pathForResizedGroup(int size) {
+    cout << "Paths for this resized group: " << endl;
+    residualGraph = g;
+    if(max_flow >= size){
+        cout << "Previous path works for this group size" << endl;
+        return;
+    }
+    else{
+        residualGraph.edmondsKarp2(size);
+    }
 }
