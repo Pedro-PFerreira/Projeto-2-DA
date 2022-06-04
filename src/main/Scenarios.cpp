@@ -44,13 +44,14 @@ void Scenarios::pathForGroup(int size) {
 }
 
 void Scenarios::pathForResizedGroup(int size) {
-    cout << "Paths for this resized group: " << endl;
+
     residualGraph = g;
     if(max_flow >= size){
         cout << "Previous path works for this group size" << endl;
         return;
     }
     else{
+        cout << "Paths for this resized group: " << endl;
         residualGraph.edmondsKarp2(size);
     }
 }

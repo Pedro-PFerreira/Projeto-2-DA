@@ -52,15 +52,34 @@ public:
      * @return main graph.
      */
     Graph getG();
-    
-    void UGmaxCapacity(); //unseparate group max capacity
 
+    /**
+     * This method obtains the path that has the maximum capacity, that is, the lowest capacity between the graph's edges.
+     * In this case, the groups of people won't separate, they go all together.
+     */
+    void UGmaxCapacity();
+    /**
+     * This method shows the possible paths that can have the same or lowest maximum capacity, but no transhipments; or that have the zero or more transhipments, but more capacity.
+     */
     void UGoptimal();
 
+    /**
+     * This method shows the residual graph's maximum flow.
+     * It also shows a corrected path to a given group's dimension input, in case the previous path doesn't fit it.
+     */
     void separatedGroups();
 
+    /**
+     * It also shows a corrected path to a given group's dimension input, in case the the maximum flow path doesn't fit it.
+     * @param size Group's dimension.
+     */
     void pathForGroup(int size);
 
+    /**
+     * This method shows all the possible paths for a resized group. If the maximum flow allowed in the residual graph is greater than
+     * the new group's dimension, then it only shows the maximum flow's path.
+     * @param size New group's dimension.
+     */
     void pathForResizedGroup(int size);
 };
 

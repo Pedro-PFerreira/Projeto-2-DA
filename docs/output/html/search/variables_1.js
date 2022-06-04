@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['num_5fjourneys_0',['num_journeys',['../class_file_reader.html#a571f793600d1551e9037c53d5b86a61d',1,'FileReader']]],
-  ['num_5flocals_1',['num_locals',['../class_file_reader.html#a4aae02a9c5dad1d617f02acf3a321895',1,'FileReader']]]
+  ['destiny_0',['destiny',['../struct_journey.html#a7e05acdb0f4e4a5d88e4ccfa33362e5e',1,'Journey']]],
+  ['dirpath_1',['dirPath',['../class_file_reader.html#a9fae5676f0cb49e269751903d83ca89f',1,'FileReader']]],
+  ['duration_2',['duration',['../struct_journey.html#a5f24eae001a345a7fe3b414a3521fb9d',1,'Journey']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['node_0',['Node',['../struct_graph_1_1_node.html',1,'Graph']]],
-  ['num_5fjourneys_1',['num_journeys',['../class_file_reader.html#a571f793600d1551e9037c53d5b86a61d',1,'FileReader']]],
-  ['num_5flocals_2',['num_locals',['../class_file_reader.html#a4aae02a9c5dad1d617f02acf3a321895',1,'FileReader']]]
+  ['makegraph_0',['makeGraph',['../class_scenarios.html#afc1a9bd1dbc5aaaa0f38569d54aea664',1,'Scenarios']]],
+  ['max_5fflow_1',['max_flow',['../class_scenarios.html#a9d98239b3a6f44054a74771c1de7616d',1,'Scenarios']]],
+  ['maxheap_2',['maxHeap',['../structmax_heap.html',1,'']]]
 ];

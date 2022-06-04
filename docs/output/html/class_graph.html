@@ -66,6 +66,7 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_graph-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Graph Class Reference</div></div>
@@ -108,9 +109,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getSize</b> () const</
 <tr class="memitem:a5c53b71d188d57779ab60d0b4f2fad45"><td class="memItemLeft" align="right" valign="top"><a id="a5c53b71d188d57779ab60d0b4f2fad45" name="a5c53b71d188d57779ab60d0b4f2fad45"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>bfs</b> (int v)</td></tr>
 <tr class="separator:a5c53b71d188d57779ab60d0b4f2fad45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34c2f3f75800f9dfbc31a7063015c4f9"><td class="memItemLeft" align="right" valign="top"><a id="a34c2f3f75800f9dfbc31a7063015c4f9" name="a34c2f3f75800f9dfbc31a7063015c4f9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>bfs1_2</b> (int a, int b)</td></tr>
-<tr class="separator:a34c2f3f75800f9dfbc31a7063015c4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7332849f074a9e23ececfe3acd16152d"><td class="memItemLeft" align="right" valign="top"><a id="a7332849f074a9e23ececfe3acd16152d" name="a7332849f074a9e23ececfe3acd16152d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>bfs_path1_2</b> (int a, int b)</td></tr>
+<tr class="separator:a7332849f074a9e23ececfe3acd16152d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54fe6024d88acab6b95ed86dda580220"><td class="memItemLeft" align="right" valign="top"><a id="a54fe6024d88acab6b95ed86dda580220" name="a54fe6024d88acab6b95ed86dda580220"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>maximumCapacityPath</b> (int s, int t)</td></tr>
 <tr class="separator:a54fe6024d88acab6b95ed86dda580220"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,15 +121,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>maximumCapacityPath1_
 <tr class="memitem:a3ba499a6fb861d16c2e613861d9b5b08"><td class="memItemLeft" align="right" valign="top"><a id="a3ba499a6fb861d16c2e613861d9b5b08" name="a3ba499a6fb861d16c2e613861d9b5b08"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>edmondsKarp</b> ()</td></tr>
 <tr class="separator:a3ba499a6fb861d16c2e613861d9b5b08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5d4641757d546e245513a93bc9a6a91"><td class="memItemLeft" align="right" valign="top"><a id="ae5d4641757d546e245513a93bc9a6a91" name="ae5d4641757d546e245513a93bc9a6a91"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fordFulkersonFlow</b> (int in_flow)</td></tr>
-<tr class="separator:ae5d4641757d546e245513a93bc9a6a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7737373b20b03b875ce5a620ac905e8e"><td class="memItemLeft" align="right" valign="top"><a id="a7737373b20b03b875ce5a620ac905e8e" name="a7737373b20b03b875ce5a620ac905e8e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>edmondsKarp2</b> (int size)</td></tr>
+<tr class="separator:a7737373b20b03b875ce5a620ac905e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afaaf41ac1be00a04dfe7f4f382243f9c"><td class="memItemLeft" align="right" valign="top"><a id="afaaf41ac1be00a04dfe7f4f382243f9c" name="afaaf41ac1be00a04dfe7f4f382243f9c"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>findReversePath</b> (int src, int dest)</td></tr>
 <tr class="separator:afaaf41ac1be00a04dfe7f4f382243f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a266cefab1a0b84cdf1e5a83e79227086"><td class="memItemLeft" align="right" valign="top"><a id="a266cefab1a0b84cdf1e5a83e79227086" name="a266cefab1a0b84cdf1e5a83e79227086"></a>
 vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>bfs_path</b> (int a, int b)</td></tr>
 <tr class="separator:a266cefab1a0b84cdf1e5a83e79227086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a69ea713cb2032c9841322b65e8bb548f"><td class="memItemLeft" align="right" valign="top"><a id="a69ea713cb2032c9841322b65e8bb548f" name="a69ea713cb2032c9841322b65e8bb548f"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>printPath</b> (vector&lt; int &gt; &amp;path)</td></tr>
+<tr class="separator:a69ea713cb2032c9841322b65e8bb548f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
