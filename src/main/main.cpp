@@ -13,7 +13,6 @@ int main() {
     scenarios.UGmaxCapacity(); // 1.1
     scenarios.UGoptimal(); // 1.2
 
-
     scenarios.pathForGroup(5); //2.1
     scenarios.pathForResizedGroup(10); //2.2
     scenarios.separatedGroups(); // 2.3
