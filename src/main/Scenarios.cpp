@@ -8,7 +8,7 @@ void Scenarios::makeGraph(const vector<Journey>& j) {
 }
 
 Scenarios::Scenarios(Graph& g) : g(g), residualGraph(g) {
-FileReader fileReader = FileReader("../input/in10_b.txt");
+FileReader fileReader = FileReader("../input/in02_b.txt");
     this->journeys = fileReader.getJourneys();
     makeGraph(this->journeys);
 }

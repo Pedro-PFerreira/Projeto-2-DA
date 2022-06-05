@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['ugmaxcapacity_0',['UGmaxCapacity',['../class_scenarios.html#ab132cc32f7ca0aaa39582a88a832c78a',1,'Scenarios']]],
-  ['ugoptimal_1',['UGoptimal',['../class_scenarios.html#adad8462c7cc5b0261e486a5c1f1d2254',1,'Scenarios']]]
+  ['residualgraph_0',['residualGraph',['../class_scenarios.html#a743d628090eb539dc86703dbe48f7ea0',1,'Scenarios']]],
+  ['right_1',['RIGHT',['../structmax_heap.html#a64e6ebe3f8343025959220dff35fdf07',1,'maxHeap']]]
 ];
