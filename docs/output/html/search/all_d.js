@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['ugmaxcapacity_0',['UGmaxCapacity',['../class_scenarios.html#ab132cc32f7ca0aaa39582a88a832c78a',1,'Scenarios']]],
-  ['ugoptimal_1',['UGoptimal',['../class_scenarios.html#adad8462c7cc5b0261e486a5c1f1d2254',1,'Scenarios']]]
+  ['scenarios_0',['Scenarios',['../class_scenarios.html',1,'Scenarios'],['../class_scenarios.html#a120bd422a274ec32b2e67fe2fc429a08',1,'Scenarios::Scenarios(Graph &amp;g)']]],
+  ['separatedgroups_1',['separatedGroups',['../class_scenarios.html#a702fff642ea8537077cd07301152bf57',1,'Scenarios']]],
+  ['setduration_2',['setDuration',['../class_graph.html#ac2c166321d0b0d44b5129dabd2d98df9',1,'Graph']]]
 ];

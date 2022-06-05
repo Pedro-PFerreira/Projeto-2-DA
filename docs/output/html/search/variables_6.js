@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['origin_0',['origin',['../struct_journey.html#adb445229105600cf0b1904c31f3e7600',1,'Journey']]]
+  ['journeys_0',['journeys',['../class_scenarios.html#a0a5b3da58e95c68bf4de08a2ea338a85',1,'Scenarios']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['scenarios_0',['Scenarios',['../class_scenarios.html#a120bd422a274ec32b2e67fe2fc429a08',1,'Scenarios']]],
-  ['separatedgroups_1',['separatedGroups',['../class_scenarios.html#a702fff642ea8537077cd07301152bf57',1,'Scenarios']]]
+  ['pathforgroup_0',['pathForGroup',['../class_scenarios.html#a7b614d3e24ed362bb2c15a8415e211a8',1,'Scenarios']]],
+  ['pathforresizedgroup_1',['pathForResizedGroup',['../class_scenarios.html#a8db88a284d0387a04df03d74156d4b3e',1,'Scenarios']]]
 ];

@@ -2,6 +2,7 @@
 #define DA2_PROJETO_FILEREADER_H
 
 #include "Elements.h"
+#include "Graph.h"
 
 #include <string>
 #include <vector>

@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['capacity_0',['capacity',['../struct_vehicle.html#af260a32d9951c35ed0f7b6011ace37c2',1,'Vehicle']]]
+  ['addedge_0',['addEdge',['../class_graph.html#a917dd6dd975e6e82e875247e956e8e50',1,'Graph']]],
+  ['addrevedge_1',['addRevEdge',['../class_graph.html#a84ec97409c25a1d138b032a76c478cff',1,'Graph']]],
+  ['addreverseedges_2',['addReverseEdges',['../class_graph.html#a169f9beefa8bc766c7cccc8f73cbeb8a',1,'Graph']]],
+  ['adj_3',['adj',['../struct_graph_1_1_node.html#a29a9084a20f8b45f57318f012ff25cad',1,'Graph::Node']]],
+  ['available_4',['available',['../struct_graph_1_1_edge.html#a53bbafa899a532ee51e7c2e0078c012c',1,'Graph::Edge']]]
 ];

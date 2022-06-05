@@ -18,7 +18,7 @@ TEST(TEST_2, checkGraphs){
 
     FileReader fileReader = FileReader("../input/in01_b.txt");
 
-    Scenarios scenarios = Scenarios(Graph(fileReader.getNumLocals(), true));
+    Scenarios scenarios = Scenarios(Graph(fileReader.getNumLocals()));
 
     int counter = 0;
 

@@ -1,7 +1,7 @@
 #ifndef DA_PROJECT2_MAXHEAP_H
 #define DA_PROJECT2_MAXHEAP_H
 
-#include <iostream>
+#include  <iostream>
 #include <vector>
 #include <algorithm>
 #include <stdexcept>
@@ -49,21 +49,16 @@ private:
     {
         if (i && A[PARENT(i)].first < A[i].first)
         {
-            // swap the two if heap property is violated
             swapValues(A[i], A[PARENT(i)]);
-
-            // call heapify-up on the parent
             heapify_up(PARENT(i));
         }
     }
 
 public:
-    // return size of the heap
     unsigned int size() {
         return A.size();
     }
 
-    // Function to check if the heap is empty or not
     bool empty() {
         return size() == 0;
     }

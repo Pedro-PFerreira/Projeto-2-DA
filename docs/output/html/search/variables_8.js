@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['vehicle_0',['vehicle',['../struct_journey.html#aaa934f4ef34f4889810858eb6627d5a7',1,'Journey']]]
+  ['n_0',['n',['../class_graph.html#a81a76a428e630453ef019a15b9092967',1,'Graph']]],
+  ['nodes_1',['nodes',['../class_graph.html#a71b5e16eb9e0670fea3ecee3526abb41',1,'Graph']]],
+  ['num_5fjourneys_2',['num_journeys',['../class_file_reader.html#a571f793600d1551e9037c53d5b86a61d',1,'FileReader']]],
+  ['num_5flocals_3',['num_locals',['../class_file_reader.html#a4aae02a9c5dad1d617f02acf3a321895',1,'FileReader']]]
 ];

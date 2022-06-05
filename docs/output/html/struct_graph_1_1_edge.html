@@ -76,22 +76,95 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a53bbafa899a532ee51e7c2e0078c012c"><td class="memItemLeft" align="right" valign="top"><a id="a53bbafa899a532ee51e7c2e0078c012c" name="a53bbafa899a532ee51e7c2e0078c012c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>available</b></td></tr>
+<tr class="memitem:a53bbafa899a532ee51e7c2e0078c012c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graph_1_1_edge.html#a53bbafa899a532ee51e7c2e0078c012c">available</a></td></tr>
 <tr class="separator:a53bbafa899a532ee51e7c2e0078c012c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7afb7da8c73dfaca8bb3808b185fa05b"><td class="memItemLeft" align="right" valign="top"><a id="a7afb7da8c73dfaca8bb3808b185fa05b" name="a7afb7da8c73dfaca8bb3808b185fa05b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>dest</b></td></tr>
+<tr class="memitem:a7afb7da8c73dfaca8bb3808b185fa05b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graph_1_1_edge.html#a7afb7da8c73dfaca8bb3808b185fa05b">dest</a></td></tr>
 <tr class="separator:a7afb7da8c73dfaca8bb3808b185fa05b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae868588f9fa61f77c008afc446becef9"><td class="memItemLeft" align="right" valign="top"><a id="ae868588f9fa61f77c008afc446becef9" name="ae868588f9fa61f77c008afc446becef9"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>capacity</b></td></tr>
+<tr class="memitem:ae868588f9fa61f77c008afc446becef9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graph_1_1_edge.html#ae868588f9fa61f77c008afc446becef9">capacity</a></td></tr>
 <tr class="separator:ae868588f9fa61f77c008afc446becef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1186050dff969b57602bbe2903f6796"><td class="memItemLeft" align="right" valign="top"><a id="ab1186050dff969b57602bbe2903f6796" name="ab1186050dff969b57602bbe2903f6796"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>flow</b></td></tr>
+<tr class="memitem:ab1186050dff969b57602bbe2903f6796"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graph_1_1_edge.html#ab1186050dff969b57602bbe2903f6796">flow</a></td></tr>
 <tr class="separator:ab1186050dff969b57602bbe2903f6796"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a700981c12d8fc75d4e7b16e850a65838"><td class="memItemLeft" align="right" valign="top"><a id="a700981c12d8fc75d4e7b16e850a65838" name="a700981c12d8fc75d4e7b16e850a65838"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_reversed</b></td></tr>
+<tr class="memitem:a700981c12d8fc75d4e7b16e850a65838"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graph_1_1_edge.html#a700981c12d8fc75d4e7b16e850a65838">is_reversed</a></td></tr>
 <tr class="separator:a700981c12d8fc75d4e7b16e850a65838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p ><a class="el" href="class_graph.html">Graph</a>'s edge. It will connects two different nodes, that is, two different locals. In other words, it represents a journey. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a53bbafa899a532ee51e7c2e0078c012c" name="a53bbafa899a532ee51e7c2e0078c012c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53bbafa899a532ee51e7c2e0078c012c">&#9670;&nbsp;</a></span>available</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Graph::Edge::available</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Boolean flag that checks if an edge is available, that is, if it has capacity to carry more flow. </p>
+
+</div>
+</div>
+<a id="ae868588f9fa61f77c008afc446becef9" name="ae868588f9fa61f77c008afc446becef9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae868588f9fa61f77c008afc446becef9">&#9670;&nbsp;</a></span>capacity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::Edge::capacity</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p ><a class="el" href="struct_graph_1_1_edge.html">Edge</a>'s capacity. It is the maximum number of people a vehicle can carry, in this context. </p>
+
+</div>
+</div>
+<a id="a7afb7da8c73dfaca8bb3808b185fa05b" name="a7afb7da8c73dfaca8bb3808b185fa05b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7afb7da8c73dfaca8bb3808b185fa05b">&#9670;&nbsp;</a></span>dest</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::Edge::dest</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Destiny's node. </p>
+
+</div>
+</div>
+<a id="ab1186050dff969b57602bbe2903f6796" name="ab1186050dff969b57602bbe2903f6796"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1186050dff969b57602bbe2903f6796">&#9670;&nbsp;</a></span>flow</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::Edge::flow</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p ><a class="el" href="struct_graph_1_1_edge.html">Edge</a>'s flow. It is the maximum number of people a vehicle is actually carrying, in this context. </p>
+
+</div>
+</div>
+<a id="a700981c12d8fc75d4e7b16e850a65838" name="a700981c12d8fc75d4e7b16e850a65838"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a700981c12d8fc75d4e7b16e850a65838">&#9670;&nbsp;</a></span>is_reversed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Graph::Edge::is_reversed</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Boolean flag that checks if a edge has been already reversed. It will be used in the residual graph. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>C:/Users/ppmpf/CLionProjects/DA2-Projeto/src/main/<a class="el" href="_graph_8h_source.html">Graph.h</a></li>
 </ul>

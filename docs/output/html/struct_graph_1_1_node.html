@@ -76,22 +76,81 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a29a9084a20f8b45f57318f012ff25cad"><td class="memItemLeft" align="right" valign="top"><a id="a29a9084a20f8b45f57318f012ff25cad" name="a29a9084a20f8b45f57318f012ff25cad"></a>
-vector&lt; <a class="el" href="struct_graph_1_1_edge.html">Edge</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>adj</b></td></tr>
+<tr class="memitem:a29a9084a20f8b45f57318f012ff25cad"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="struct_graph_1_1_edge.html">Edge</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graph_1_1_node.html#a29a9084a20f8b45f57318f012ff25cad">adj</a></td></tr>
 <tr class="separator:a29a9084a20f8b45f57318f012ff25cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebc576851c8e7f62a619004157358211"><td class="memItemLeft" align="right" valign="top"><a id="aebc576851c8e7f62a619004157358211" name="aebc576851c8e7f62a619004157358211"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>mincap</b></td></tr>
 <tr class="separator:aebc576851c8e7f62a619004157358211"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09f5571b617c4763e2b74ef1a83232c8"><td class="memItemLeft" align="right" valign="top"><a id="a09f5571b617c4763e2b74ef1a83232c8" name="a09f5571b617c4763e2b74ef1a83232c8"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>pred</b></td></tr>
+<tr class="memitem:a09f5571b617c4763e2b74ef1a83232c8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graph_1_1_node.html#a09f5571b617c4763e2b74ef1a83232c8">pred</a></td></tr>
 <tr class="separator:a09f5571b617c4763e2b74ef1a83232c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a377a8348af0414d10a5e60fbffafae7c"><td class="memItemLeft" align="right" valign="top"><a id="a377a8348af0414d10a5e60fbffafae7c" name="a377a8348af0414d10a5e60fbffafae7c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>duration</b> = 0</td></tr>
+<tr class="memitem:a377a8348af0414d10a5e60fbffafae7c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graph_1_1_node.html#a377a8348af0414d10a5e60fbffafae7c">duration</a> = 0</td></tr>
 <tr class="separator:a377a8348af0414d10a5e60fbffafae7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2360e752c746736f533bc4e673c1f80d"><td class="memItemLeft" align="right" valign="top"><a id="a2360e752c746736f533bc4e673c1f80d" name="a2360e752c746736f533bc4e673c1f80d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>visited</b></td></tr>
+<tr class="memitem:a2360e752c746736f533bc4e673c1f80d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graph_1_1_node.html#a2360e752c746736f533bc4e673c1f80d">visited</a></td></tr>
 <tr class="separator:a2360e752c746736f533bc4e673c1f80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p ><a class="el" href="class_graph.html">Graph</a>'s node. It will represent a certain local. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a29a9084a20f8b45f57318f012ff25cad" name="a29a9084a20f8b45f57318f012ff25cad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29a9084a20f8b45f57318f012ff25cad">&#9670;&nbsp;</a></span>adj</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="struct_graph_1_1_edge.html">Edge</a>&gt; Graph::Node::adj</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Group of edge's that the node is connected. </p>
+
+</div>
+</div>
+<a id="a377a8348af0414d10a5e60fbffafae7c" name="a377a8348af0414d10a5e60fbffafae7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a377a8348af0414d10a5e60fbffafae7c">&#9670;&nbsp;</a></span>duration</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::Node::duration = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Duration of the trip until that local. </p>
+
+</div>
+</div>
+<a id="a09f5571b617c4763e2b74ef1a83232c8" name="a09f5571b617c4763e2b74ef1a83232c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09f5571b617c4763e2b74ef1a83232c8">&#9670;&nbsp;</a></span>pred</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::Node::pred</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p ><a class="el" href="struct_graph_1_1_node.html">Node</a> that precedes the current one. </p>
+
+</div>
+</div>
+<a id="a2360e752c746736f533bc4e673c1f80d" name="a2360e752c746736f533bc4e673c1f80d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2360e752c746736f533bc4e673c1f80d">&#9670;&nbsp;</a></span>visited</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Graph::Node::visited</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Boolean flag that checks if a node was already visited or not. Its value will be modified (or not) in the BFS algorithm. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>C:/Users/ppmpf/CLionProjects/DA2-Projeto/src/main/<a class="el" href="_graph_8h_source.html">Graph.h</a></li>
 </ul>

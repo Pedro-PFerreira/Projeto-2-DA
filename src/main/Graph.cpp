@@ -243,9 +243,3 @@ int Graph::edmondsKarp2(int size){
     }
     return max_flow;
 }
-
-bool Graph::findReversePath(int src, int dest) {
-    for(auto edge: nodes[src].adj)
-        if(edge.dest == dest) return true;
-    return false;
-}
