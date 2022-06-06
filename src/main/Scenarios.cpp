@@ -2,13 +2,12 @@
 
 void Scenarios::makeGraph(const vector<Journey>& j) {
     for (auto journey : j){
-        this->g.addEdge(journey.origin, journey.destiny, journey.vehicle.capacity, 0, false);
-        this->g.setDuration(journey.origin, journey.duration);
+        this->g.addEdge(journey.origin, journey.destiny, journey.vehicle.capacity, 0, false, journey.duration);
     }
 }
 
 Scenarios::Scenarios(Graph& g) : g(g), residualGraph(g) {
-FileReader fileReader = FileReader("../input/in10_b.txt");
+FileReader fileReader = FileReader("../input/in05_b.txt");
     this->journeys = fileReader.getJourneys();
     makeGraph(this->journeys);
 }

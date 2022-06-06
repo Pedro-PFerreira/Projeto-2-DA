@@ -82,6 +82,9 @@ public:
      */
     void pathForResizedGroup(int size);
 
+    /**
+     * This method the displays the time spent by the group in the Critical Path.
+     */
     void pathForCritical();
 };
 

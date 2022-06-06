@@ -38,6 +38,11 @@ class Graph {
          * Boolean flag that checks if a edge has been already reversed. It will be used in the residual graph.
          */
         bool is_reversed;
+
+        /**
+        * Duration of the trip until that local.
+        */
+        int duration;
     };
 
     /**
@@ -56,10 +61,7 @@ class Graph {
          * Node that precedes the current one.
          */
         int pred;
-        /**
-         * Duration of the trip until that local.
-         */
-        int duration = 0;
+
         /**
          * Boolean flag that checks if a node was already visited or not. Its value will be modified (or not) in the BFS algorithm.
          */
@@ -104,9 +106,9 @@ public:
      * @param flow Number of people that is being carried in that moment.
      * @param is_reversed Checks is it was already reversed or not (true if so, false otherwise).
      */
-    void addEdge(int src, int dest, int capacity, int flow, bool is_reversed){
+    void addEdge(int src, int dest, int capacity, int flow, bool is_reversed, int dur){
         if (src<1 || src>n || dest<1 || dest>n) return;
-        nodes[src].adj.push_back({ true, dest, capacity, flow, is_reversed});
+        nodes[src].adj.push_back({ true, dest, capacity, flow, is_reversed, dur});
     };
 
     /**
@@ -119,7 +121,7 @@ public:
      */
     void addRevEdge(int src, int dest, int capacity, int flow, bool is_reversed){
         if (src<1 || src>n || dest<1 || dest>n) return;
-        nodes[src].adj.push_back({ false, dest, capacity, flow, is_reversed});
+        nodes[src].adj.push_back({ false, dest, capacity, flow, is_reversed, 0});
     };
 
     /**
@@ -139,7 +141,7 @@ public:
      * @param s Last local visited.
      * @param dur Time spent until that node.
      */
-    void setDuration(int s, int dur);
+    void setDuration(int s, int t, int dur);
 
     /**
      * This method returns the Maximum flow allowed in a path
@@ -220,7 +222,17 @@ public:
      */
     void static printPath(vector<int>& path);
 
+    /**
+     * This method calculates the minimum time that a group will get back together in destiny.
+     * This is associated to the Critical Path Problem.
+     */
     void criticalPath();
+
+    /**
+     * This method calculates the maximum time that the elements wait, supposing that they start at the same time in the same place.
+     * It also displays the locals of where those elements wait that time.
+     */
+    void maxTimeWait();
 };
 
 #endif //DA2_PROJETO_GRAPH_H
