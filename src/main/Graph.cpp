@@ -169,7 +169,7 @@ void Graph::edmondsKarp() {
 
     while(bfs(1)) {
         path = bfs_path(1,n);
-        printPath(path);
+
         int path_flow = getMaxFlow(path);
         max_flow += path_flow;
         for (int i = 0; i < path.size()- 1; i++){
@@ -192,7 +192,7 @@ void Graph::edmondsKarp() {
             }
         }
     }
-
+    printPath(path);
     cout << endl << "Maximum flow: " << max_flow << endl;
 }
 

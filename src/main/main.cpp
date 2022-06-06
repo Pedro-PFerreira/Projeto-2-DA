@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    FileReader fileReader = FileReader("../input/andre.txt");
+    FileReader fileReader = FileReader("../input/in02_b.txt");
 
     Graph g = Graph(fileReader.getNumLocals());
 

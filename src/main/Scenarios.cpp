@@ -7,7 +7,7 @@ void Scenarios::makeGraph(const vector<Journey>& j) {
 }
 
 Scenarios::Scenarios(Graph& g) : g(g), residualGraph(g) {
-FileReader fileReader = FileReader("../input/andre.txt");
+FileReader fileReader = FileReader("../input/in02_b.txt");
     this->journeys = fileReader.getJourneys();
     makeGraph(this->journeys);
 }
@@ -15,13 +15,13 @@ FileReader fileReader = FileReader("../input/andre.txt");
 Graph Scenarios::getG() {return this->g;}
 
 void Scenarios::UGmaxCapacity() { //1.1
-    cout << "/--------------- UNSEPARATED GROUPS ---------------/" << endl;
+    cout << "/--------------- UNSEPARATED GROUPS ---------------/\n" << endl;
     cout << "/--------------- MAXIMUM CAPACITY PATH ---------------/\n" << endl;
    g.maximumCapacityPath(1, g.getSize());
 }
 
 void Scenarios::UGoptimal(){
-    cout << "/--------------- OPTIMAL SOLUTIONS ---------------/\n" << endl;
+    cout << "\n/--------------- OPTIMAL SOLUTIONS ---------------/\n" << endl;
     cout << "The optimal solutions will be between these values: " << endl;
     vector<int> path = g.bfs_path(1, g.getSize());
     int min_cap = g.getMaxFlow(path);
@@ -33,15 +33,14 @@ void Scenarios::UGoptimal(){
 }
 
 void Scenarios::separatedGroups() {
-    cout << "/--------------- MAXIMUM FLOW PATH ---------------/\n" << endl;
+    cout << "\n/--------------- MAXIMUM FLOW PATH, USING EDMONDS KARP---------------/\n" << endl;
     residualGraph = g;
-    cout << "EDMONDS-KARP\nPossible Paths:" << endl;
+    cout << "Maximum flow path:" << endl;
     residualGraph.edmondsKarp();
-    residualGraph.edmondsKarp2(3);
 }
 
 void Scenarios::pathForGroup(int size) {
-    cout << "/--------------- SEPARATED GROUPS ---------------/" << endl;
+    cout << "\n/--------------- SEPARATED GROUPS ---------------/" << endl;
 
     cout << "Paths for this group size " << size << " people: " << endl;
     residualGraph = g;
@@ -49,7 +48,6 @@ void Scenarios::pathForGroup(int size) {
 }
 
 void Scenarios::pathForResizedGroup(int size) {
-    cout << "/--------------- CRITICAL SIZE PATH, USING EARLY START ---------------/\n" << endl;
     residualGraph = g;
     if(max_flow >= size){
         cout << "Previous path works for this group size" << endl;
@@ -62,7 +60,7 @@ void Scenarios::pathForResizedGroup(int size) {
 }
 
 void Scenarios::pathForCritical(){
-    cout << "/--------------- CRITICAL SIZE PATH, USING LAST FINISH ---------------/\n" << endl;
+    cout << "\n/--------------- CRITICAL SIZE PATH, USING LAST FINISH ---------------/\n" << endl;
     residualGraph = g;
     durMin = residualGraph.criticalPath();
 }
