@@ -7,7 +7,7 @@ void Scenarios::makeGraph(const vector<Journey>& j) {
 }
 
 Scenarios::Scenarios(Graph& g) : g(g), residualGraph(g) {
-FileReader fileReader = FileReader("../input/in05_b.txt");
+FileReader fileReader = FileReader("../input/andre.txt");
     this->journeys = fileReader.getJourneys();
     makeGraph(this->journeys);
 }
@@ -57,5 +57,10 @@ void Scenarios::pathForResizedGroup(int size) {
 
 void Scenarios::pathForCritical(){
     residualGraph = g;
-    residualGraph.criticalPath();
+    durMin = residualGraph.criticalPath();
+}
+
+void Scenarios::pathLatestFinish(){
+    residualGraph = g;
+    residualGraph.maxTimeWait(durMin);
 }

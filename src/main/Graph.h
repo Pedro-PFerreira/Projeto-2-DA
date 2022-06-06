@@ -69,6 +69,10 @@ class Graph {
 
         int es;
 
+        int lf;
+
+        int ft;
+
         int degree;
     };
 
@@ -119,7 +123,7 @@ public:
      * @param flow Number of people that is being carried in that moment.
      * @param is_reversed Checks is it was already reversed or not (true if so, false otherwise).
      */
-    void addRevEdge(int src, int dest, int capacity, int flow, bool is_reversed){
+    void addRevEdge(int src, int dest, int capacity, int flow, bool is_reversed, int duration){
         if (src<1 || src>n || dest<1 || dest>n) return;
         nodes[src].adj.push_back({ false, dest, capacity, flow, is_reversed, 0});
     };
@@ -131,17 +135,11 @@ public:
         for(int node = 0; node <= n; node++) {
             for(auto edge: nodes[node].adj) {
                 if(!edge.is_reversed)
-                    addRevEdge(edge.dest, node, edge.capacity, 0, true);
+                    addRevEdge(edge.dest, node, 0, 0, true, edge.duration);
             }
         }
     }
 
-    /**
-     * It sets the duration of the trip until that moment.
-     * @param s Last local visited.
-     * @param dur Time spent until that node.
-     */
-    void setDuration(int s, int t, int dur);
 
     /**
      * This method returns the Maximum flow allowed in a path
@@ -226,13 +224,13 @@ public:
      * This method calculates the minimum time that a group will get back together in destiny.
      * This is associated to the Critical Path Problem.
      */
-    void criticalPath();
+    int criticalPath();
 
     /**
      * This method calculates the maximum time that the elements wait, supposing that they start at the same time in the same place.
      * It also displays the locals of where those elements wait that time.
      */
-    void maxTimeWait();
+    void maxTimeWait(int duration);
 };
 
 #endif //DA2_PROJETO_GRAPH_H

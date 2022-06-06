@@ -242,9 +242,10 @@ int Graph::edmondsKarp2(int size){
     return max_flow;
 }
 
-void Graph::criticalPath() {
+int Graph::criticalPath() {
+    cout << n << endl;
 
-    for (int i = 1; i <= n; i++){
+    for (int i = 1; i <= n ; i++){
         nodes[i].es = 0;
         nodes[i].pred = 0;
         nodes[i].degree = 0;
@@ -256,7 +257,7 @@ void Graph::criticalPath() {
         }
     }
     queue<int> s;
-    for (int i = 1; i <= n ;i++){
+    for (int i = 1; i <= n ; i++){
         if (nodes[i].degree == 0)
             s.push(i);
     }
@@ -280,9 +281,71 @@ void Graph::criticalPath() {
         }
     }
 
+    for (int t = 0; t < nodes.size(); t++) {
+        std::cout << "ES[" << t << "] - " << nodes[t].es << std::endl;
+    }
+
     cout << "Minimum time to get the group together (units of time): " << durMin << endl;
+    return durMin;
 }
 
-void Graph::maxTimeWait() {
+void Graph::maxTimeWait(int durMin) {
+    addReverseEdges();
 
+    for (int i = 1; i <= n; i++){
+        nodes[i].degree = 0;
+        nodes[i].lf = durMin;
+    }
+
+    for (int i = 1; i <= n; i++){
+        for (auto edge : nodes[i].adj){
+            if(edge.is_reversed){
+                nodes[edge.dest].degree++;
+            }
+        }
+    }
+    queue<int> q;
+    for (int i = 1; i <= n ; i++){
+        if (nodes[i].degree == 0)
+            q.push(i);
+    }
+
+    while(!q.empty()){
+        int v = q.front();
+        q.pop();
+        for (auto edge: nodes[v].adj) {
+            if(edge.is_reversed){
+                int w = edge.dest;
+                if (nodes[w].lf > (nodes[v].lf - edge.duration)){
+                    nodes[w].lf = (nodes[v].lf - edge.duration);
+                }
+                nodes[w].degree--;
+                if(nodes[w].degree == 0){
+                    q.push(w);
+                }
+            }
+        }
+    }
+    int max_ft;
+    for (int i = 1; i <= n; i++){
+        int ft_temp = 0, ls;
+        for (auto edge : nodes[i].adj) {
+            if(edge.is_reversed){
+                ls = nodes[edge.dest].lf - edge.duration;
+                cout << ls << endl;
+                ft_temp = ls - nodes[i].es;
+                nodes[i].ft = ls - nodes[i].es;
+            }
+        }
+        if (max_ft < ft_temp)
+            max_ft = ft_temp;
+    }
+
+    cout << "Maximum time spent on waiting (hours): " << max_ft << endl;
+
+    cout << "Locals where elements wait the maximum time:" << endl;
+    for (int i = 1; i <= n; i++){
+        if (nodes[i].ft == max_ft)
+            cout << i << " ";
+    }
 }

@@ -40,6 +40,8 @@ private:
      */
     int max_flow = 0;
 
+    int durMin;
+
 public:
     /**
      * Scenarios constructor. It reads a file thanks to a FileReader and creates of the graph of the journeys contained on that file.
@@ -86,6 +88,8 @@ public:
      * This method the displays the time spent by the group in the Critical Path.
      */
     void pathForCritical();
+
+    void pathLatestFinish();
 };
 
 
