@@ -88,9 +88,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7b614d3e24ed362bb2c15a8415e211a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8db88a284d0387a04df03d74156d4b3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenarios.html#a8db88a284d0387a04df03d74156d4b3e">pathForResizedGroup</a> (int size)</td></tr>
 <tr class="separator:a8db88a284d0387a04df03d74156d4b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76296c8efe48502c9104f0d5e3a964e7"><td class="memItemLeft" align="right" valign="top"><a id="a76296c8efe48502c9104f0d5e3a964e7" name="a76296c8efe48502c9104f0d5e3a964e7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pathForCritical</b> ()</td></tr>
+<tr class="memitem:a76296c8efe48502c9104f0d5e3a964e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenarios.html#a76296c8efe48502c9104f0d5e3a964e7">pathForCritical</a> ()</td></tr>
 <tr class="separator:a76296c8efe48502c9104f0d5e3a964e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf1586fd834a84d58fdc940c7b713778"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenarios.html#acf1586fd834a84d58fdc940c7b713778">pathLatestFinish</a> ()</td></tr>
+<tr class="separator:acf1586fd834a84d58fdc940c7b713778"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -107,6 +108,9 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a743d628090eb539dc86703dbe48f7ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d98239b3a6f44054a74771c1de7616d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenarios.html#a9d98239b3a6f44054a74771c1de7616d">max_flow</a> = 0</td></tr>
 <tr class="separator:a9d98239b3a6f44054a74771c1de7616d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac716c01910d77bdc8375a159fbba10aa"><td class="memItemLeft" align="right" valign="top"><a id="ac716c01910d77bdc8375a159fbba10aa" name="ac716c01910d77bdc8375a159fbba10aa"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>durMin</b></td></tr>
+<tr class="separator:ac716c01910d77bdc8375a159fbba10aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a120bd422a274ec32b2e67fe2fc429a08" name="a120bd422a274ec32b2e67fe2fc429a08"></a>
@@ -192,6 +196,24 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a76296c8efe48502c9104f0d5e3a964e7" name="a76296c8efe48502c9104f0d5e3a964e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76296c8efe48502c9104f0d5e3a964e7">&#9670;&nbsp;</a></span>pathForCritical()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scenarios::pathForCritical </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >This method the displays the time spent by the group in the Critical Path. </p>
+
+</div>
+</div>
 <a id="a7b614d3e24ed362bb2c15a8415e211a8" name="a7b614d3e24ed362bb2c15a8415e211a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b614d3e24ed362bb2c15a8415e211a8">&#9670;&nbsp;</a></span>pathForGroup()</h2>
 
@@ -237,6 +259,24 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="acf1586fd834a84d58fdc940c7b713778" name="acf1586fd834a84d58fdc940c7b713778"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf1586fd834a84d58fdc940c7b713778">&#9670;&nbsp;</a></span>pathLatestFinish()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scenarios::pathLatestFinish </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >This method displays the locals where the elements wait the maximum delay. </p>
 
 </div>
 </div>
@@ -388,8 +428,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/ppmpf/CLionProjects/DA2-Projeto/src/main/<a class="el" href="_scenarios_8h_source.html">Scenarios.h</a></li>
-<li>C:/Users/ppmpf/CLionProjects/DA2-Projeto/src/main/Scenarios.cpp</li>
+<li>C:/Users/ppmpf/CLionProjects/DA-2Projeto/src/main/<a class="el" href="_scenarios_8h_source.html">Scenarios.h</a></li>
+<li>C:/Users/ppmpf/CLionProjects/DA-2Projeto/src/main/Scenarios.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

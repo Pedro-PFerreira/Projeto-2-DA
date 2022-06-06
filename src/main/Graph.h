@@ -93,14 +93,6 @@ public:
      */
     explicit Graph(int nodes): n(nodes), nodes(nodes+1) {};
 
-    // 1 src -> 3
-    // 3 -> 1 src
-    // 1 src -> 2
-    // 2 -> 4
-    // 4 -> 7 sink
-    // 3 -> 5
-    // 5 -> 7 sink
-
     /**
      * This method will add an edge (or journey) to the graph, so that we can traverse it later while looking for a path.
      * Initially, this edge is available.
@@ -109,6 +101,7 @@ public:
      * @param capacity Capacity of the vehicle on that journey.
      * @param flow Number of people that is being carried in that moment.
      * @param is_reversed Checks is it was already reversed or not (true if so, false otherwise).
+     * @param dur Duration associated to the journey.
      */
     void addEdge(int src, int dest, int capacity, int flow, bool is_reversed, int dur){
         if (src<1 || src>n || dest<1 || dest>n) return;
@@ -122,10 +115,11 @@ public:
      * @param capacity Capacity of the vehicle on that journey.
      * @param flow Number of people that is being carried in that moment.
      * @param is_reversed Checks is it was already reversed or not (true if so, false otherwise).
+     * @param duration Duration associated to the journey.
      */
     void addRevEdge(int src, int dest, int capacity, int flow, bool is_reversed, int duration){
         if (src<1 || src>n || dest<1 || dest>n) return;
-        nodes[src].adj.push_back({ false, dest, capacity, flow, is_reversed, 0});
+        nodes[src].adj.push_back({ false, dest, capacity, flow, is_reversed, duration});
     };
 
     /**
@@ -229,6 +223,7 @@ public:
     /**
      * This method calculates the maximum time that the elements wait, supposing that they start at the same time in the same place.
      * It also displays the locals of where those elements wait that time.
+     * @param duration Maximum wait duration.
      */
     void maxTimeWait(int duration);
 };

@@ -243,7 +243,6 @@ int Graph::edmondsKarp2(int size){
 }
 
 int Graph::criticalPath() {
-    cout << n << endl;
 
     for (int i = 1; i <= n ; i++){
         nodes[i].es = 0;
@@ -281,10 +280,6 @@ int Graph::criticalPath() {
         }
     }
 
-    for (int t = 0; t < nodes.size(); t++) {
-        std::cout << "ES[" << t << "] - " << nodes[t].es << std::endl;
-    }
-
     cout << "Minimum time to get the group together (units of time): " << durMin << endl;
     return durMin;
 }
@@ -316,6 +311,7 @@ void Graph::maxTimeWait(int durMin) {
         for (auto edge: nodes[v].adj) {
             if(edge.is_reversed){
                 int w = edge.dest;
+
                 if (nodes[w].lf > (nodes[v].lf - edge.duration)){
                     nodes[w].lf = (nodes[v].lf - edge.duration);
                 }
@@ -332,7 +328,6 @@ void Graph::maxTimeWait(int durMin) {
         for (auto edge : nodes[i].adj) {
             if(edge.is_reversed){
                 ls = nodes[edge.dest].lf - edge.duration;
-                cout << ls << endl;
                 ft_temp = ls - nodes[i].es;
                 nodes[i].ft = ls - nodes[i].es;
             }

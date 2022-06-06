@@ -89,6 +89,9 @@ public:
      */
     void pathForCritical();
 
+    /**
+     * This method displays the locals where the elements wait the maximum delay.
+     */
     void pathLatestFinish();
 };
 

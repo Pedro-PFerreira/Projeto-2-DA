@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DA_PROJ_2122: C:/Users/ppmpf/CLionProjects/DA2-Projeto/src/main/Scenarios.h Source File</title>
+<title>DA_PROJ_2122: C:/Users/ppmpf/CLionProjects/DA-2Projeto/src/main/Scenarios.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -96,38 +96,44 @@ $(function() {
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_scenarios.html#a9d98239b3a6f44054a74771c1de7616d">   41</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="class_scenarios.html#a9d98239b3a6f44054a74771c1de7616d">max_flow</a> = 0;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_scenarios.html#a120bd422a274ec32b2e67fe2fc429a08">Scenarios</a>(<a class="code hl_class" href="class_graph.html">Graph</a>&amp; <a class="code hl_variable" href="class_scenarios.html#a705957177618466ed075e75ab14cedde">g</a>);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_class" href="class_graph.html">Graph</a> <a class="code hl_function" href="class_scenarios.html#a5c6567b975aca0c5501ed9024695f4a7">getG</a>();</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scenarios.html#ab132cc32f7ca0aaa39582a88a832c78a">UGmaxCapacity</a>();</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scenarios.html#adad8462c7cc5b0261e486a5c1f1d2254">UGoptimal</a>();</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scenarios.html#a702fff642ea8537077cd07301152bf57">separatedGroups</a>();</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scenarios.html#a7b614d3e24ed362bb2c15a8415e211a8">pathForGroup</a>(<span class="keywordtype">int</span> size);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scenarios.html#a8db88a284d0387a04df03d74156d4b3e">pathForResizedGroup</a>(<span class="keywordtype">int</span> size);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">void</span> pathForCritical();</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>};</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#endif </span><span class="comment">//DA2_PROJETO_SCENARIOS_H</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">int</span> durMin;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_scenarios.html#a120bd422a274ec32b2e67fe2fc429a08">Scenarios</a>(<a class="code hl_class" href="class_graph.html">Graph</a>&amp; <a class="code hl_variable" href="class_scenarios.html#a705957177618466ed075e75ab14cedde">g</a>);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_class" href="class_graph.html">Graph</a> <a class="code hl_function" href="class_scenarios.html#a5c6567b975aca0c5501ed9024695f4a7">getG</a>();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scenarios.html#ab132cc32f7ca0aaa39582a88a832c78a">UGmaxCapacity</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scenarios.html#adad8462c7cc5b0261e486a5c1f1d2254">UGoptimal</a>();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scenarios.html#a702fff642ea8537077cd07301152bf57">separatedGroups</a>();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scenarios.html#a7b614d3e24ed362bb2c15a8415e211a8">pathForGroup</a>(<span class="keywordtype">int</span> size);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scenarios.html#a8db88a284d0387a04df03d74156d4b3e">pathForResizedGroup</a>(<span class="keywordtype">int</span> size);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scenarios.html#a76296c8efe48502c9104f0d5e3a964e7">pathForCritical</a>();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scenarios.html#acf1586fd834a84d58fdc940c7b713778">pathLatestFinish</a>();</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>};</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#endif </span><span class="comment">//DA2_PROJETO_SCENARIOS_H</span></div>
 <div class="ttc" id="aclass_graph_html"><div class="ttname"><a href="class_graph.html">Graph</a></div><div class="ttdef"><b>Definition:</b> Graph.h:15</div></div>
 <div class="ttc" id="aclass_scenarios_html"><div class="ttname"><a href="class_scenarios.html">Scenarios</a></div><div class="ttdef"><b>Definition:</b> Scenarios.h:15</div></div>
 <div class="ttc" id="aclass_scenarios_html_a0a5b3da58e95c68bf4de08a2ea338a85"><div class="ttname"><a href="class_scenarios.html#a0a5b3da58e95c68bf4de08a2ea338a85">Scenarios::journeys</a></div><div class="ttdeci">vector&lt; Journey &gt; journeys</div><div class="ttdef"><b>Definition:</b> Scenarios.h:21</div></div>
-<div class="ttc" id="aclass_scenarios_html_a120bd422a274ec32b2e67fe2fc429a08"><div class="ttname"><a href="class_scenarios.html#a120bd422a274ec32b2e67fe2fc429a08">Scenarios::Scenarios</a></div><div class="ttdeci">Scenarios(Graph &amp;g)</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:10</div></div>
-<div class="ttc" id="aclass_scenarios_html_a5c6567b975aca0c5501ed9024695f4a7"><div class="ttname"><a href="class_scenarios.html#a5c6567b975aca0c5501ed9024695f4a7">Scenarios::getG</a></div><div class="ttdeci">Graph getG()</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:16</div></div>
-<div class="ttc" id="aclass_scenarios_html_a702fff642ea8537077cd07301152bf57"><div class="ttname"><a href="class_scenarios.html#a702fff642ea8537077cd07301152bf57">Scenarios::separatedGroups</a></div><div class="ttdeci">void separatedGroups()</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:33</div></div>
+<div class="ttc" id="aclass_scenarios_html_a120bd422a274ec32b2e67fe2fc429a08"><div class="ttname"><a href="class_scenarios.html#a120bd422a274ec32b2e67fe2fc429a08">Scenarios::Scenarios</a></div><div class="ttdeci">Scenarios(Graph &amp;g)</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:9</div></div>
+<div class="ttc" id="aclass_scenarios_html_a5c6567b975aca0c5501ed9024695f4a7"><div class="ttname"><a href="class_scenarios.html#a5c6567b975aca0c5501ed9024695f4a7">Scenarios::getG</a></div><div class="ttdeci">Graph getG()</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:15</div></div>
+<div class="ttc" id="aclass_scenarios_html_a702fff642ea8537077cd07301152bf57"><div class="ttname"><a href="class_scenarios.html#a702fff642ea8537077cd07301152bf57">Scenarios::separatedGroups</a></div><div class="ttdeci">void separatedGroups()</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:35</div></div>
 <div class="ttc" id="aclass_scenarios_html_a705957177618466ed075e75ab14cedde"><div class="ttname"><a href="class_scenarios.html#a705957177618466ed075e75ab14cedde">Scenarios::g</a></div><div class="ttdeci">Graph g</div><div class="ttdef"><b>Definition:</b> Scenarios.h:26</div></div>
 <div class="ttc" id="aclass_scenarios_html_a743d628090eb539dc86703dbe48f7ea0"><div class="ttname"><a href="class_scenarios.html#a743d628090eb539dc86703dbe48f7ea0">Scenarios::residualGraph</a></div><div class="ttdeci">Graph residualGraph</div><div class="ttdef"><b>Definition:</b> Scenarios.h:30</div></div>
-<div class="ttc" id="aclass_scenarios_html_a7b614d3e24ed362bb2c15a8415e211a8"><div class="ttname"><a href="class_scenarios.html#a7b614d3e24ed362bb2c15a8415e211a8">Scenarios::pathForGroup</a></div><div class="ttdeci">void pathForGroup(int size)</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:40</div></div>
-<div class="ttc" id="aclass_scenarios_html_a8db88a284d0387a04df03d74156d4b3e"><div class="ttname"><a href="class_scenarios.html#a8db88a284d0387a04df03d74156d4b3e">Scenarios::pathForResizedGroup</a></div><div class="ttdeci">void pathForResizedGroup(int size)</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:46</div></div>
+<div class="ttc" id="aclass_scenarios_html_a76296c8efe48502c9104f0d5e3a964e7"><div class="ttname"><a href="class_scenarios.html#a76296c8efe48502c9104f0d5e3a964e7">Scenarios::pathForCritical</a></div><div class="ttdeci">void pathForCritical()</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:64</div></div>
+<div class="ttc" id="aclass_scenarios_html_a7b614d3e24ed362bb2c15a8415e211a8"><div class="ttname"><a href="class_scenarios.html#a7b614d3e24ed362bb2c15a8415e211a8">Scenarios::pathForGroup</a></div><div class="ttdeci">void pathForGroup(int size)</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:43</div></div>
+<div class="ttc" id="aclass_scenarios_html_a8db88a284d0387a04df03d74156d4b3e"><div class="ttname"><a href="class_scenarios.html#a8db88a284d0387a04df03d74156d4b3e">Scenarios::pathForResizedGroup</a></div><div class="ttdeci">void pathForResizedGroup(int size)</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:51</div></div>
 <div class="ttc" id="aclass_scenarios_html_a9d98239b3a6f44054a74771c1de7616d"><div class="ttname"><a href="class_scenarios.html#a9d98239b3a6f44054a74771c1de7616d">Scenarios::max_flow</a></div><div class="ttdeci">int max_flow</div><div class="ttdef"><b>Definition:</b> Scenarios.h:41</div></div>
-<div class="ttc" id="aclass_scenarios_html_ab132cc32f7ca0aaa39582a88a832c78a"><div class="ttname"><a href="class_scenarios.html#ab132cc32f7ca0aaa39582a88a832c78a">Scenarios::UGmaxCapacity</a></div><div class="ttdeci">void UGmaxCapacity()</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:18</div></div>
-<div class="ttc" id="aclass_scenarios_html_adad8462c7cc5b0261e486a5c1f1d2254"><div class="ttname"><a href="class_scenarios.html#adad8462c7cc5b0261e486a5c1f1d2254">Scenarios::UGoptimal</a></div><div class="ttdeci">void UGoptimal()</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:22</div></div>
+<div class="ttc" id="aclass_scenarios_html_ab132cc32f7ca0aaa39582a88a832c78a"><div class="ttname"><a href="class_scenarios.html#ab132cc32f7ca0aaa39582a88a832c78a">Scenarios::UGmaxCapacity</a></div><div class="ttdeci">void UGmaxCapacity()</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:17</div></div>
+<div class="ttc" id="aclass_scenarios_html_acf1586fd834a84d58fdc940c7b713778"><div class="ttname"><a href="class_scenarios.html#acf1586fd834a84d58fdc940c7b713778">Scenarios::pathLatestFinish</a></div><div class="ttdeci">void pathLatestFinish()</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:70</div></div>
+<div class="ttc" id="aclass_scenarios_html_adad8462c7cc5b0261e486a5c1f1d2254"><div class="ttname"><a href="class_scenarios.html#adad8462c7cc5b0261e486a5c1f1d2254">Scenarios::UGoptimal</a></div><div class="ttdeci">void UGoptimal()</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:23</div></div>
 <div class="ttc" id="aclass_scenarios_html_afc1a9bd1dbc5aaaa0f38569d54aea664"><div class="ttname"><a href="class_scenarios.html#afc1a9bd1dbc5aaaa0f38569d54aea664">Scenarios::makeGraph</a></div><div class="ttdeci">void makeGraph(const vector&lt; Journey &gt; &amp;j)</div><div class="ttdef"><b>Definition:</b> Scenarios.cpp:3</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
