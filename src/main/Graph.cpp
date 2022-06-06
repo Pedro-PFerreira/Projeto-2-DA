@@ -245,43 +245,47 @@ int Graph::edmondsKarp2(int size){
 }
 
 void Graph::criticalPath() {
-    //Esta função é para 2.4?
-    for (int i = 1; i <= n; i++){
-        nodes[i].es = 0;
-        nodes[i].pred = 0;
+
+    vector<int> path= bfs_path(1, n);
+    for (int i = 0; i < (int) path.size(); i++){
+        nodes[path[i]].es = 0;
+        nodes[path[i]].pred = 0;
     }
 
-    for (int i = 1; i <= n; i++){
-        for (auto edge : nodes[i].adj){
+    for (int i = 0; i < (int) path.size(); i++){
+        for (auto edge : nodes[path[i]].adj){
             nodes[edge.dest].degree++;
         }
     }
     queue<int> s;
-    for (int i = 1; i <= n; i++){
-        if (nodes[i].degree == 0)
-            s.push(i);
+    for (int i = 0; i < (int) path.size(); i++){
+        if (nodes[path[i]].degree == 0)
+            s.push(path[i]);
     }
     int durMin = -1;
-    vector<int> path;
-    while(!s.empty()){
+    while(!s.empty()) {
         int v = s.front();
         s.pop();
 
-        if (durMin < nodes[v].es){
+        if (durMin < nodes[v].es) {
             durMin = nodes[v].es;
-            nodes[v].visited = true;
         }
-        for (auto edge: nodes[v].adj){
+        for (auto edge: nodes[v].adj) {
             int w = edge.dest;
-            if (nodes[w].es < nodes[v].es + nodes[w].duration){
+            /*
+            if (nodes[w].es < nodes[v].es + nodes[w].duration) {
                 nodes[w].es = nodes[v].es + nodes[w].duration;
+                nodes[w].pred = v;
+            }
+             */
+            if (nodes[w].es < nodes[w].duration) {
+                nodes[w].es = nodes[w].duration;
                 nodes[w].pred = v;
             }
             nodes[w].degree--;
             if (nodes[w].degree == 0)
                 s.push(w);
         }
-        path.push_back(v);
     }
     printPath(path);
     cout << "Minimum time to get the group together (units of time): " << durMin << endl;
