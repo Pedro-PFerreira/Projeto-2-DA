@@ -243,3 +243,46 @@ int Graph::edmondsKarp2(int size){
     }
     return max_flow;
 }
+
+void Graph::criticalPath() {
+    //Esta função é para 2.4?
+    for (int i = 1; i <= n; i++){
+        nodes[i].es = 0;
+        nodes[i].pred = 0;
+    }
+
+    for (int i = 1; i <= n; i++){
+        for (auto edge : nodes[i].adj){
+            nodes[edge.dest].degree++;
+        }
+    }
+    queue<int> s;
+    for (int i = 1; i <= n; i++){
+        if (nodes[i].degree == 0)
+            s.push(i);
+    }
+    int durMin = -1;
+    vector<int> path;
+    while(!s.empty()){
+        int v = s.front();
+        s.pop();
+
+        if (durMin < nodes[v].es){
+            durMin = nodes[v].es;
+            nodes[v].visited = true;
+        }
+        for (auto edge: nodes[v].adj){
+            int w = edge.dest;
+            if (nodes[w].es < nodes[v].es + nodes[w].duration){
+                nodes[w].es = nodes[v].es + nodes[w].duration;
+                nodes[w].pred = v;
+            }
+            nodes[w].degree--;
+            if (nodes[w].degree == 0)
+                s.push(w);
+        }
+        path.push_back(v);
+    }
+    printPath(path);
+    cout << "Minimum time to get the group together (units of time): " << durMin << endl;
+}

@@ -64,6 +64,10 @@ class Graph {
          * Boolean flag that checks if a node was already visited or not. Its value will be modified (or not) in the BFS algorithm.
          */
         bool visited;
+
+        int es;
+
+        int degree;
     };
 
     /**
@@ -215,6 +219,8 @@ public:
      * @param path Path to be displayed.
      */
     void static printPath(vector<int>& path);
+
+    void criticalPath();
 };
 
 #endif //DA2_PROJETO_GRAPH_H

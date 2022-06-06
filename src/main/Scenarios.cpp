@@ -8,7 +8,7 @@ void Scenarios::makeGraph(const vector<Journey>& j) {
 }
 
 Scenarios::Scenarios(Graph& g) : g(g), residualGraph(g) {
-FileReader fileReader = FileReader("../input/in02_b.txt");
+FileReader fileReader = FileReader("../input/in01_b.txt");
     this->journeys = fileReader.getJourneys();
     makeGraph(this->journeys);
 }
@@ -54,4 +54,8 @@ void Scenarios::pathForResizedGroup(int size) {
         cout << "Paths for this resized group: " << endl;
         residualGraph.edmondsKarp2(size);
     }
+}
+
+void Scenarios::pathForCritical(){
+    g.criticalPath();
 }

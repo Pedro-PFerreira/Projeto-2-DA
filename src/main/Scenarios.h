@@ -81,6 +81,8 @@ public:
      * @param size New group's dimension.
      */
     void pathForResizedGroup(int size);
+
+    void pathForCritical();
 };
 
 

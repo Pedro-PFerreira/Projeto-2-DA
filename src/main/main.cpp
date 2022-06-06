@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    FileReader fileReader = FileReader("../input/in02_b.txt");
+    FileReader fileReader = FileReader("../input/in01_b.txt");
 
     Graph g = Graph(fileReader.getNumLocals());
 
@@ -16,6 +16,8 @@ int main() {
     scenarios.pathForGroup(5); //2.1
     scenarios.pathForResizedGroup(10); //2.2
     scenarios.separatedGroups(); // 2.3
+
+    scenarios.pathForCritical();
 
     return 0;
 }
